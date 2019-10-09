@@ -306,3 +306,5 @@ defaults:
     values:
       sidebar:
         nav: "docs"
+
+theme: jekyll-theme-minimal
