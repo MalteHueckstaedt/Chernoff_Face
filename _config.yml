@@ -307,4 +307,10 @@ defaults:
       sidebar:
         nav: "docs"
 
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
 theme: jekyll-theme-minimal

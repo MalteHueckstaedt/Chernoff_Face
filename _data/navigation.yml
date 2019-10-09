@@ -15,7 +15,7 @@ docs:
   - title: Getting Started
     children:
       - title: "Quick-Start Guide"
-        url: /_pages/test.md
+        url: permalink: /about/
       - title: "Structure"
         url: /docs/structure/
       - title: "Installation"
