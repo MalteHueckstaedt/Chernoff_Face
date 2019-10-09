@@ -1,6 +1,9 @@
+---
+title: "About"
+excerpt: "Test zur Testung"
+last_modified_at: 2019-08-27T15:45:54-04:00
+---
 
-
- 
 About
 This is the reload of the existing site. Initially all articles were written in Russian language but I was seeing traffic coming from other countries, so it was decided to re-brand the site into the international language that can be read by any developer or system engineer. The original site was running with WordPress CMS that is outside of my interests today, so there is no cense to pay $$ every month for cloud server with php, nginx and mysql that is required to run WordPress.
 
