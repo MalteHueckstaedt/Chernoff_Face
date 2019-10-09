@@ -14,8 +14,8 @@ main:
 docs:
   - title: Getting Started
     children:
-      - title: "Quick-Start Guide"
-        url: /_pages/about/
+      - title: "Informationen zu DEKiF"
+        url: /_pages/InfoDEKiF/
       - title: "Structure"
         url: /docs/structure/
       - title: "Installation"
