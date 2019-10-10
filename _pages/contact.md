@@ -8,7 +8,7 @@ title: "Contact"
 Kommissarische Abteilungsleitung<br>
 kleimann@dzhw.eu<br>
 0511 450670-363<br>
-0511 450670-960<br>
+0511 450670-960
 
 ### Laura Behrmann
 
@@ -16,7 +16,7 @@ kleimann@dzhw.eu<br>
 Kommissarische Abteilungsleitung<br>
 kleimann@dzhw.eu<br>
 0511 450670-363<br>
-0511 450670-960<br>
+0511 450670-960
 
 ### Malte Hückstädt
 
@@ -24,4 +24,4 @@ kleimann@dzhw.eu<br>
 Kommissarische Abteilungsleitung<br>
 kleimann@dzhw.eu<br>
 0511 450670-363<br>
-0511 450670-960<br>
+0511 450670-960
