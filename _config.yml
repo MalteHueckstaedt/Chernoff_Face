@@ -312,5 +312,3 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
-
-theme: minimal-mistakes-jekyll
