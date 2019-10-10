@@ -10,23 +10,22 @@ Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetren
 
 ![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
-mail@dzhw.eu<br>
-0511 000000-008<br>
-0511 000000-009
+Mail: mail@dzhw.eu<br>
+Tel.: 0511 000000-008<br>
+Fax: 0511 000000-009
 
 ### Laura Behrmann
 
 ![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
-mail@dzhw.eu<br>
-0511 000000-008<br>
-0511 000000-009
-multiple-Contact Block 1
+Mail: mail@dzhw.eu<br>
+Tel.: 0511 000000-008<br>
+Fax: 0511 000000-009
 
 ### Malte Hückstädt
 
 ![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
-mail@dzhw.eu<br>
-0511 000000-008<br>
-0511 000000-009
+Mail: mail@dzhw.eu<br>
+Tel.: 0511 000000-008<br>
+Fax: 0511 000000-009
