@@ -4,14 +4,14 @@ title: "Contact"
 
 ### MALTE HÜCKSTÄDT
 
-![titel](/assets/images/Perso_Dummy.png)
+![image-left]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy.png){: .align-left} Malte Hückstädt, Abteilung Governance in Hochschule und Wissenschaft, wissenschaftlicher Mitarbeiter
 
-![image-center]({{https://www.dzhw.eu/gmbh/mitarbeiter?m_id=839}}{{ site.baseurl }}/assets/images/Perso_Dummy.png){: .align-center}
+hueckstaedt@dzhw.eu
+0511 450670-358
+0511 450670-960
 
-![image-left]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy.png){: .align-left} The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is **left aligned**.
 
-Abteilung Governance in Hochschule und Wissenschaft
-wissenschaftlicher Mitarbeiter
+![image-left]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy.png){: .align-left} Malte Hückstädt, Abteilung Governance in Hochschule und Wissenschaft, wissenschaftlicher Mitarbeiter
 
 hueckstaedt@dzhw.eu
 0511 450670-358
