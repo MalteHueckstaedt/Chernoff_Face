@@ -31,7 +31,7 @@ Tel.: 0511 000000-008<br>
 Fax: 0511 000000-009
 
 
-![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy-center.png)
+![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center.png)
 **Malte Hückstädt**<br>
 Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
