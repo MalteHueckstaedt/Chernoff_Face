@@ -1,7 +1,7 @@
 ---
 title: "DEKIF Readability"
 header:
-  image: /assets/images/logo.png
+  image: /assets/images/header.png
 ---
 
 # Überschrift 2
