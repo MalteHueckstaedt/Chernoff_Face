@@ -2,21 +2,7 @@
 title: "Contact"
 ---
 
-### PD Dr. Bernd Kleimann
-
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} PD DR. BERND KLEIMANN<br>
-Abteilung Governance in Hochschule und Wissenschaft<br>
-Kommissarische Abteilungsleitung<br>
-kleimann@dzhw.eu<br>
-0511 450670-363<br>0511 450670-960
-
-### Laura Behrmann
-
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is **left aligned**. There should be plenty of room above, below, and to the right of the image. Just look at him there --- Hey guy! Way to rock that left side. I don't care what the right aligned image says, you look great. Don't let anyone else tell you differently.
-
-### Malte Hückstädt
-
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is **left aligned**. There should be plenty of room above, below, and to the right of the image. Just look at him there --- Hey guy! Way to rock that left side. I don't care what the right aligned image says, you look great. Don't let anyone else tell you differently.
+Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetrennt durch eine oder mehrere leere Zeilen. (Eine leere Zeile ist jede Zeile die aussieht wie eine leere Zeile -- eine Zeile die nichts anderes enthält als Leerzeichen und Tabs wird als leer behandelt.) Normale Absätze sollten nicht mit Leerzeichen oder Tabs eingerückt sein.
 
 
 ### PD Dr. Bernd Kleimann
