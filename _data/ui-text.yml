@@ -496,7 +496,7 @@ de: &DEFAULT_DE
   related_label              : "Ihnen gefällt vielleicht auch"
   follow_label               : "Folgen:"
   feed_label                 : "Feed"
-  powered_by                 : "Möglich durch"
+  powered_by                 : "Powered by"
   website_label              : "Webseite"
   email_label                : "E-Mail"
   recent_posts               : "Aktuelle Beiträge"
@@ -1552,7 +1552,7 @@ hi: &DEFAULT_HI
   back_to_top                : "शीर्ष पर वापस"
 hi-IN:
   <<: *DEFAULT_HI
-  
+
 # Catalan
 # --------------
 ca: &DEFAULT_CA
@@ -1604,7 +1604,7 @@ ca: &DEFAULT_CA
   back_to_top                : "Torna a dalt"
 ca-ES:
   <<: *DEFAULT_CA
-  
+
 # Another locale
 # --------------
 #
