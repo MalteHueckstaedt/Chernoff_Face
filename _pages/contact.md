@@ -2,11 +2,13 @@
 title: "Contact"
 ---
 
-**Malte Hückstädt**  <dt>Tel.</dt> <dd><a href="tel:+49-89-00000000">089 0000 0000</a></dd>
+**Malte Hückstädt**
+<dt>Tel.</dt> <dd><a href="tel:+49-89-00000000">089 0000 0000</a></dd>
 
 ***
 
-**Malte Hückstädt**  <dt>Tel.</dt> <dd><a href="tel:+49-89-00000000">089 0000 0000</a></dd>
+**Malte Hückstädt**
+<dt>Tel.</dt> <dd><a href="tel:+49-89-00000000">089 0000 0000</a></dd>
 
 ***
 
