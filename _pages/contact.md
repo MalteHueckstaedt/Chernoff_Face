@@ -22,6 +22,8 @@ Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
 Fax: 0511 000000-009
 
+/assets/images/Perso_Dummy_Center.png
+
 ![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center_right.png)
 **Malte Hückstädt**<br>
 Abteilung Governance in Hochschule und Wissenschaft<br>
