@@ -1,5 +1,6 @@
 ---
 title: "DEKIF Readability"
+layout: single
 ---
 
 # Überschrift 2
