@@ -8,7 +8,9 @@ Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetren
 
 ### PD Dr. Bernd Kleimann
 
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
+![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left}
+
+Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
 Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
@@ -16,7 +18,9 @@ Fax: 0511 000000-009
 
 ### Laura Behrmann
 
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
+![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left}
+
+Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
 Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
@@ -24,7 +28,9 @@ Fax: 0511 000000-009
 
 ### Malte Hückstädt
 
-![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left} Abteilung Governance in Hochschule und Wissenschaft<br>
+![image-left]({{ "/assets/images/Perso_Dummy.png" | relative_url }}){: .align-left}
+
+Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
 Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
