@@ -108,7 +108,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Malte Hueckstaedt"
+  name             : #"Malte Hueckstaedt"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : #"I am an **amazing** person."
   location         : #"Somewhere"
@@ -300,14 +300,12 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
   # _pages
   - scope:
       path: ""
     values:
       sidebar:
         nav: "docs"
-        read_time: true
 
 # Collections
 collections:
