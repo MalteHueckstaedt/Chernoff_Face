@@ -16,17 +16,12 @@ docs:
     children:
       - title: "Informationen zu DEKiF"
         url: /_pages/InfoDEKiF/
-        image: "/assets/images/logo.png"
-        image_alt: "image"
-        text: "Some text here."
       - title: "Structure"
         url: /docs/structure/
       - title: "Installation"
         url: /docs/installation/
       - title: "Upgrading"
         url: /docs/upgrading/
-
-
 
   - title: Customization
     children:
