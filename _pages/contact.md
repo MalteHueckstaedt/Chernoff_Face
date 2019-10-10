@@ -22,26 +22,32 @@ Tel:0511 450670-358\
 Fax:0511 450670-960
 
 
-<div class="contactperson contactperson_v2">
+<h2>Kontakt</h2>
+<address>
+  <dl>
+    <dt>Tel.</dt>
+    <dd><a href="tel:+49-89-00000000">089 0000 0000</a></dd>
 
-<div class="contactperson-img"><img src="https://www.dzhw.eu/images/orga/behrmann.png" alt="Laura Behrmann" width="71" height="88"></div>
+    <dt>Fax</dt>
+    <dd>089 0000 0001</dd>
 
-<div class="contactperson-text">
-<a class="contactperson-name" href="https://www.dzhw.eu/gmbh/mitarbeiter?m_id=745" title="Laura Behrmann
-">Laura Behrmann
+    <dt>Öffnungszeiten</dt>
+    <dd><span>Mo–Fr:</span> <span>7:00–21:00 Uhr</span></dd>
+    <dd><span>Sa:</span> <span>9:00–15:00 Uhr</span></dd>
 
+    <dt>E-Mail Adresse</dt>
+    <dd><a href="mailto:kontakt@example.com">kontakt@example.com</a></dd>
 
+    <dt>Geschäftsadresse</dt>
+    <dd>Fiktives Unternehmen<br/>
+      Musterstraße 93<br/>
+      80331 München
+    </dd>
 
-<span class="contactperson-name-subtitle">Projektleitung </span>
-
-</a>
-
-
-
-
-<a class="email" href="mailto:behrmann@dzhw.eu" title="E-Mail schreiben" aria-hidden="true" aria-label="E-Mail schreiben">behrmann@dzhw.eu</a><noscript>Bitte aktivieren Sie Javascript für die Darstellung der E-Mail Adresse.</noscript>
-
-<span class="phone">0511 450670-302
-</span>
-</div>
-</div>
+    <dt>Rücksendungen an</dt>
+    <dd>Fiktives Unternehmen<br/>
+      Musterstraße 93<br/>
+      80331 München
+    </dd>
+  </dl>
+</address>
