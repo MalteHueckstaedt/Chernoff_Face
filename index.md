@@ -1,5 +1,7 @@
 ---
 layout: single
+header:
+  overlay_image: /assets/logo.png
 author_profile: true
 title: Determinanten und Effekte von Kooperation in homogenen und heterogenen Forschungsverbünden
 ---
