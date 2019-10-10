@@ -1,7 +1,6 @@
 ---
 layout: single
-header:
-  overlay_image: /assets/logo.png
+header: /assets/logo.png
 ---
 
 # Überschrift
