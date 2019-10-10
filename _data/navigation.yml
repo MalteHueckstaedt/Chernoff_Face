@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "DZHW"
-    external: https://www.dzhw.eu/
+    url: https://www.dzhw.eu/
   - title: "About"
     url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "Sample Posts"
