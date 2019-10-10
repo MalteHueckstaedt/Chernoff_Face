@@ -2,7 +2,7 @@
 title: "DEKiF Projektinformationen"
 sidebar:
   - title: "Title"
-    image: "/assets/images/logo.png"
+    image: "/assets/images/Perso_Dummy.png"
     image_alt: "image"
     text: "Some text here."
   - title: "Another Title"
