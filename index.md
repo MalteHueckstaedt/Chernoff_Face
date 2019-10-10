@@ -11,7 +11,7 @@ sidebar:
     nav: sidebar-sample
 ---
 
-
+ 
 Die Forschung in homogenen und heterogenen Kollaborationszusammenhängen gewinnt zunehmend an Bedeutung. Kooperationen bieten ein großes Potential durch die Verknüpfung von Kompetenzen, Sichtweisen, Erfahrungen, Ressourcen und Persönlichkeiten. Es gibt aber auch mannigfaltige Hindernisse für eine fruchtbare Kooperation. Im Rahmen des Verbundprojektes DEKiF werden die Determinanten und Effekte von Problemen bei der Kooperation in homogenen und heterogenen Forschungsverbünden untersucht und Vorschläge zur Lösung von Kooperationsproblemen abgeleitet. Im Einzelnen werden folgende Fragen bearbeitet:
 {: style="text-align: justify;"}
 
