@@ -6,25 +6,23 @@ Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetren
 {: style="text-align: justify;"}
 
 
-![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center_right.png)
-**PD Dr. Bernd Kleimann**<br>
+![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center.png)
+**Malte Hückstädt**<br>
 Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
 Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
 Fax: 0511 000000-009
 
-![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center_right.png)
-**Laura Behrmann**<br>
+![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center.png)
+**Malte Hückstädt**<br>
 Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
 Mail: mail@dzhw.eu<br>
 Tel.: 0511 000000-008<br>
 Fax: 0511 000000-009
 
-/assets/images/Perso_Dummy_Center.png
-
-![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center_right.png)
+![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/Perso_Dummy_Center.png)
 **Malte Hückstädt**<br>
 Abteilung Governance in Hochschule und Wissenschaft<br>
 Kommissarische Abteilungsleitung<br>
