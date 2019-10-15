@@ -13,6 +13,9 @@ main:
   - title: "Presse"
     url: /_pages/Presse/
 
+author: Billy Rick
+
+
 docs:
   - title: Kontakt
     children:
@@ -34,7 +37,7 @@ docs:
         url: /_pages/Wer wird befragt/
       - title: "Wer kann  DEKiF nutzen?"
         url: /_pages/Wer kann  DEKiF nutzen/
-      
+
 
   - title: Mission
     children:
