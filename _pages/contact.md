@@ -2,7 +2,7 @@
 title: "Contact"
 ---
 
-Ein Absatz besteht einfach aus einer oder aus mehreren Zeilen von Text, abgetrennt durch eine oder mehrere leere Zeilen. (Eine leere Zeile ist jede Zeile die aussieht wie eine leere Zeile -- eine Zeile die nichts anderes enthält als Leerzeichen und Tabs wird als leer behandelt.) Normale Absätze sollten nicht mit Leerzeichen oder Tabs eingerückt sein.
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 {: style="text-align: justify;"}
 
 
