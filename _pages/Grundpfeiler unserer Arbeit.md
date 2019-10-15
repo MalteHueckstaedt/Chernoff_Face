@@ -1,0 +1,14 @@
+---
+title: "DEKiF"
+excerpt: "Test zur Testung"
+
+---
+
+Seit 1984 werden jährlich für das SOEP in einer generationsübergreifenden Lebensverlaufsperspektive mehrere tausend Haushalte in Deutschland zu ihren wirtschaftlichen und sozialen Lebensverhältnissen, ihren Verhaltensweisen, ihrem subjektiven Wohlbefinden und ihren Einstellungen und Präferenzen befragt.
+Für das SOEP hat der datenrechtliche Schutz der Befragten allerhöchste Priorität, was sich in der strikten Einhaltung geltender Datenschutzbestimmungen und forschungsethischer Standards widerspiegelt.
+Zur nachhaltigen Sicherung der Qualität der SOEP-Daten werden die Messmethoden kontinuierlich dem State of the Art entsprechend weiterentwickelt. Die Analysepotentiale der Daten werden durch innovative Forschungsdesigns, die regelmäßig neu in das SOEP integriert werden, erweitert. Die von 2012 bis 2016 aufgebaute SOEP-Innovationsstichprobe (SOEP-IS) hat sich als fester Bestandteil der Forschungsdateninfrastruktur des SOEP etabliert und durch die Integration sozialwissenschaftlicher Feldexperimente die Potenziale der SOEP-IS-Daten für Kausalanalysen erweitert. SOEP-IS bietet der internationalen Forschungsgemeinschaft eine einmalige Möglichkeit zur Erhebung von Daten, die auf die eigene Forschungsfrage abgestimmt sind. Erfahrungen aus SOEP-IS zu neuen Erhebungsformen und -inhalten fließen in die SOEP-Haupterhebung ein.  
+Die kostenfreie Nutzung der SOEP-Daten erfolgt gemäß der etablierten FAIR-Prinzipien (FAIR steht für “findable, accessible, interoperable, reusable”) und wird durch ein umfassendes Informations- und Serviceangebot des SOEP unterstützt, das den jeweiligen technischen und methodischen State of the Art widerspiegelt.
+Um die Weitergabe von Wissen an die nächste Generation von Wissenschaftlerinnen und Wissenschaftlern zu sichern und zu fördern, führt das SOEP-Team regelmäßig Workshops und Lehrveranstaltungen durch und passt sein Informationsangebot an die Bedürfnisse der Nutzenden an.
+Das SOEP ist eingebunden in ein nationales und internationales Netzwerk von wissenschaftlichen Nutzerinnen und Nutzern. Diese Einbindung ist Grundlage für die Forschungs- und Infrastrukturtätigkeiten des SOEP-Teams und hilft der kontinuierlichen Verbesserung der Qualität der SOEP-Erhebung, -Forschung und des Serviceangebots.
+Die Forschenden am SOEP publizieren methodische, grundlegende und anwendungsbezogene Arbeiten auf hohem wissenschaftlichen Niveau in der Ökonomie, Soziologie, Psychologie und anderen Bereichen der Sozialwissenschaften. Ihre Forschung konzentriert sich auf relevante Themen und Fragen moderner Gesellschaften (zum Beispiel soziale Ungleichheit und Migration). Grundlage bildet ein empirisch-analytisches Wissenschaftsverständnis.
+Das SOEP ist eingebunden in zahlreiche Kooperationen und Verbundprojekte mit Forschenden weltweit und wird diese zukunftsgerichtet weiter ausbauen.
