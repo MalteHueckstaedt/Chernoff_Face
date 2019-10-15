@@ -1,5 +1,5 @@
 ---
-title: "DEKiF"
+title: "Mailingliste zu DEKiF"
 excerpt: "Test zur Testung"
 
 ---

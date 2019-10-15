@@ -1,5 +1,5 @@
 ---
-title: "DEKiF"
+title: "Grundpfeiler unserer Arbeit"
 excerpt: "Test zur Testung"
 
 ---

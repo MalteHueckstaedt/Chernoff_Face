@@ -1,5 +1,5 @@
 ---
-title: "DEKiF"
+title: "Ausgewählte Publikationen"
 excerpt: "Test zur Testung"
 
 ---

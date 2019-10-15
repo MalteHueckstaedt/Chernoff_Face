@@ -1,5 +1,5 @@
 ---
-title: "DEKiF"
+title: "Mission Statement der DEKiF"
 excerpt: "Test zur Testung"
 
 ---
