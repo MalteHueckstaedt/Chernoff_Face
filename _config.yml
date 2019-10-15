@@ -146,7 +146,7 @@ footer:
       icon: "fab fa-fw fa-github"
       #url: "https://github.com/DZHW-DEKiF?tab=repositories"
     - label: "Deutsches Zentrum für Hochschul- und Wissenschaftsforschung"
-      #icon: "far fa-circle"
+      icon: "fal fa-dot-circle"
       url: "https://www.dzhw.eu/"
     # - label: "Universität Düsseldorf"
     #   icon: "fas fa-circle"
