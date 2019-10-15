@@ -15,8 +15,13 @@ main:
 
 docs:
   - title: Team
-        url: /_pages/contact/
-      
+        url: /_pages/Presse/
+  - title: "Structure"
+    url: /docs/structure/
+  - title: "Installation"
+    url: /docs/installation/
+  - title: "Upgrading"
+    url: /docs/upgrading/
 
   - title: Customization
     children:
