@@ -15,15 +15,8 @@ main:
 
 docs:
   - title: Team
-    children:
-      - title: "Informationen zu DEKiF"
-        url: /_pages/InfoDEKiF/
-      - title: "Structure"
-        url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
+        url: /_pages/contact.md/
+      
 
   - title: Customization
     children:
