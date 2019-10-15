@@ -471,7 +471,7 @@ zh-HK:
 # ----------------
 de: &DEFAULT_DE
   skip_links                 :
-  empty_label                : "Kooperationspartner"
+  empty_label                : "Kooperationspartner:"
   skip_primary_nav           :
   skip_content               :
   skip_footer                :
