@@ -145,18 +145,16 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       #url: "https://github.com/DZHW-DEKiF?tab=repositories"
-    - label: "DZHW"
-      icon: "fas fa-circle"
+    - label: "Deutsches Zentrum für Hochschul- und Wissenschaftsforschung"
+      icon: "far fa-circle"
       url: "https://www.dzhw.eu/"
-    - label: "DEKiF"
-      icon: "fas fa-circle"
-      url: "https://www.dzhw.eu/forschung/projekt?pr_id=647"
-    - label: "Universität Düsseldorf"
-      icon: "fas fa-circle"
-      url: "https://www.uni-duesseldorf.de"
-    - label: "Stifterverband Berlin"
-      icon: "fas fa-circle"
-      url: "https://www.stifterverband.org/"
+    # - label: "Universität Düsseldorf"
+    #   icon: "fas fa-circle"
+    #   url: "https://www.uni-duesseldorf.de"
+    # - label: "Stifterverband Berlin"
+    #   icon: "fas fa-circle"
+    #   url: "https://www.stifterverband.org/"
+
 
 
 # Reading Files
