@@ -14,46 +14,44 @@ main:
     url: /_pages/Presse/
 
 docs:
-  - title: Getting Started
+  - title: Kontakt
     children:
-      - title: "Informationen zu DEKiF"
-        url: /_pages/InfoDEKiF/
-      - title: "Structure"
-        url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
+      - title: "Kontakdaten"
+        url: /_pages/Kontakdaten/
+      - title: "Mailingliste zu DEKiF"
+        url: /_pages/Mailingliste zu DEKiF/
 
-  - title: Customization
-    children:
-      - title: "Configuration"
-        url: /docs/configuration/
-      - title: "Navigation"
-        url: /docs/navigation/
-      - title: "UI Text"
-        url: /docs/ui-text/
-      - title: "Authors"
-        url: /docs/authors/
-      - title: "Layouts"
-        url: /docs/layouts/
 
-  - title: Content
+  - title: Übersicht über DEKiF
     children:
-      - title: "Working with Posts"
-        url: /docs/posts/
-      - title: "Working with Pages"
-        url: /docs/pages/
-      - title: "Working with Collections"
-        url: /docs/collections/
-      - title: "Helpers"
-        url: /docs/helpers/
-      - title: "Utility Classes"
-        url: /docs/utility-classes/
+      - title: "Leben in Deutschland"
+        url: /_pages/Leben in Deutschland/
+      - title: "Stichprobenentwicklung"
+        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+      - title: "Themenschwerpunkte"
+        url: /_pages/Themenschwerpunkte/
+      - title: "Wer wird befragt?"
+        url: /_pages/Wer wird befragt/
+      - title: "Wer kann  DEKiF nutzen?"
+        url: /_pages/Wer kann  DEKiF nutzen/
 
-  - title: Extras
+
+  - title: Mission
     children:
-      - title: "Stylesheets"
-        url: /docs/stylesheets/
-      - title: "JavaScript"
-        url: /docs/javascript/
+      - title: "Mission Statement der DEKiF"
+        url: /_pages/Mission Statement der DEKiF/
+      - title: "Grundpfeiler unserer Arbeit"
+        url: /_pages/Grundpfeiler unserer Arbeit/
+      - title: "Vision"
+        url: /_pages/Vision/
+
+  - title: DEkiF Survey Rat
+    children:
+      - title: "DEKiF Survey Rat"
+        url: /_pages/DEKiF Survey Rat/
+      - title: "Mitglieder des DEkiF Survey Rat"
+        url: /_pages/Mitglieder des DEkiF Survey Rat/
+      - title: "Mitglieder des DIW Beirats, die für DEKiF zuständig sind"
+        url: /_pages/Mitglieder des DIW Beirats, die für DEKiF zuständig sind/
+      - title: "Entwicklung"
+        url: /_pages/Entwicklung/
