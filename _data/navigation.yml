@@ -2,17 +2,19 @@
 main:
   - title: "DZHW"
     url: https://www.dzhw.eu/
-  - title: "Contact"
-    url: /_pages/contact/
-  - title: "Sample Posts"
-    url: /year-archive/
-  - title: "Sample Collections"
-    url: /collection-archive/
-  - title: "Sitemap"
-    url: /sitemap/
+  - title: "Über uns"
+    url: /_pages/Über uns/
+  - title: "DEKiF"
+    url: /_pages/DEKiF/
+  - title: "News and Events"
+    url: /_pages/News and Events/
+  - title: "Publikationen"
+    url: /_pages/Publikationen/
+  - title: "Presse"
+    url: /_pages/Presse/
 
 docs:
-  - title: Getting Started
+  - title: Team
     children:
       - title: "Informationen zu DEKiF"
         url: /_pages/InfoDEKiF/
