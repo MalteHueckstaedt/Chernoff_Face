@@ -116,7 +116,11 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
+<<<<<<< HEAD
        url: hueckstaedt@dzhw.eu
+=======
+      url: hueckstaedt@dzhw.eu
+>>>>>>> ef1886279c7ab451ebf77b9583892a332faeadb2
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
