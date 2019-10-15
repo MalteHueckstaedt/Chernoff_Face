@@ -13,12 +13,6 @@ main:
   - title: "Presse"
     url: /_pages/Presse/
 
-<<<<<<< HEAD
-=======
-author: Billy Rick
-
->>>>>>> f2b1a55a2aef7d7993730ebd8675cf9c130640dc
-
 docs:
   - title: Kontakt
     children:
