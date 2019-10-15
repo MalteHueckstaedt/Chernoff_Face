@@ -144,18 +144,18 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
+      url: "https://github.com/DZHW-DEKiF?tab=repositories"
+    - label: "DZHW"
       icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
+      url: "https://www.dzhw.eu/"
+    - label: "Universität Düsseldorf"
       icon: "fab fa-fw fa-bitbucket"
-      # url:
+      url: "https://www.uni-duesseldorf.de"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
 
-
+ 
 # Reading Files
 include:
   - .htaccess
