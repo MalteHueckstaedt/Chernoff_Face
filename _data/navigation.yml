@@ -16,7 +16,12 @@ main:
 docs:
   - title: Team
         url: /_pages/contact.md/
-      
+      - title: "Structure"
+        url: /docs/structure/
+      - title: "Installation"
+        url: /docs/installation/
+      - title: "Upgrading"
+        url: /docs/upgrading/
 
   - title: Customization
     children:
