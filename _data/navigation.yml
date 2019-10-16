@@ -12,16 +12,17 @@ main:
     url: /_pages/Publikationen/
   - title: "Presse"
     url: /_pages/Presse/
-#
-# docs:
-#   - title: Kontakt
-#     children:
-#       - title: "Kontakdaten"
-#         url: /_pages/Kontakdaten/
-#       - title: "Mailingliste zu DEKiF"
-#         url: /_pages/Mailingliste zu DEKiF/
-#
-#
+    
+# Sidebar
+docs:
+  - title: Kontakt
+    children:
+      - title: "Kontakdaten"
+        url: /_pages/Kontakdaten/
+      - title: "Mailingliste zu DEKiF"
+        url: /_pages/Mailingliste zu DEKiF/
+
+
   - title: Übersicht über DEKiF
     children:
       # - title: "Leben in Deutschland"
