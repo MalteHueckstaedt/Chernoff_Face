@@ -22,16 +22,16 @@ main:
 #         url: /_pages/Mailingliste zu DEKiF/
 #
 #
-#   - title: Übersicht über DEKiF
-#     children:
-#       - title: "Leben in Deutschland"
-#         url: /_pages/Leben in Deutschland/
-#       - title: "Stichprobenentwicklung"
-#         url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
-#       - title: "Themenschwerpunkte"
-#         url: /_pages/Themenschwerpunkte/
-#       - title: "Wer wird befragt?"
-#         url: /_pages/Wer wird befragt/
+  - title: Übersicht über DEKiF
+    children:
+      # - title: "Leben in Deutschland"
+      #   url: /_pages/Leben in Deutschland/
+      - title: "Stichprobenentwicklung"
+        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+      - title: "Themenschwerpunkte"
+        url: /_pages/Themenschwerpunkte/
+      - title: "Wer wird befragt?"
+        url: /_pages/Wer wird befragt/
 #       - title: "Wer kann  DEKiF nutzen?"
 #         url: /_pages/Wer kann  DEKiF nutzen/
 #
