@@ -1,17 +1,17 @@
 # main links
-# main:
-#   - title: "DZHW"
-#     url: https://www.dzhw.eu/
-#   - title: "Über uns"
-#     url: /_pages/Über uns/
-#   - title: "DEKiF"
-#     url: /_pages/DEKiF/
-#   - title: "News and Events"
-#     url: /_pages/News and Events/
-#   - title: "Publikationen"
-#     url: /_pages/Publikationen/
-#   - title: "Presse"
-#     url: /_pages/Presse/
+main:
+  - title: "DZHW"
+    url: https://www.dzhw.eu/
+  - title: "Über uns"
+    url: /_pages/Über uns/
+  - title: "DEKiF"
+    url: /_pages/DEKiF/
+  - title: "News and Events"
+    url: /_pages/News and Events/
+  - title: "Publikationen"
+    url: /_pages/Publikationen/
+  - title: "Presse"
+    url: /_pages/Presse/
 #
 # docs:
 #   - title: Kontakt
