@@ -1,57 +1,57 @@
 # main links
-main:
-  - title: "DZHW"
-    url: https://www.dzhw.eu/
-  - title: "Über uns"
-    url: /_pages/Über uns/
-  - title: "DEKiF"
-    url: /_pages/DEKiF/
-  - title: "News and Events"
-    url: /_pages/News and Events/
-  - title: "Publikationen"
-    url: /_pages/Publikationen/
-  - title: "Presse"
-    url: /_pages/Presse/
-
-docs:
-  - title: Kontakt
-    children:
-      - title: "Kontakdaten"
-        url: /_pages/Kontakdaten/
-      - title: "Mailingliste zu DEKiF"
-        url: /_pages/Mailingliste zu DEKiF/
-
-
-  - title: Übersicht über DEKiF
-    children:
-      - title: "Leben in Deutschland"
-        url: /_pages/Leben in Deutschland/
-      - title: "Stichprobenentwicklung"
-        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
-      - title: "Themenschwerpunkte"
-        url: /_pages/Themenschwerpunkte/
-      - title: "Wer wird befragt?"
-        url: /_pages/Wer wird befragt/
-      - title: "Wer kann  DEKiF nutzen?"
-        url: /_pages/Wer kann  DEKiF nutzen/
-
-
-  - title: Mission
-    children:
-      - title: "Mission Statement der DEKiF"
-        url: /_pages/Mission Statement der DEKiF/
-      - title: "Grundpfeiler unserer Arbeit"
-        url: /_pages/Grundpfeiler unserer Arbeit/
-      - title: "Vision"
-        url: /_pages/Vision/
-
-  - title: DEkiF Survey Rat
-    children:
-      - title: "DEKiF Survey Rat"
-        url: /_pages/DEKiF Survey Rat/
-      - title: "Mitglieder des DEkiF Survey Rat"
-        url: /_pages/Mitglieder des DEkiF Survey Rat/
-      - title: "Mitglieder des DIW Beirats, die für DEKiF zuständig sind"
-        url: /_pages/Mitglieder des DIW Beirats, die für DEKiF zuständig sind/
-      - title: "Entwicklung"
-        url: /_pages/Entwicklung/
+# main:
+#   - title: "DZHW"
+#     url: https://www.dzhw.eu/
+#   - title: "Über uns"
+#     url: /_pages/Über uns/
+#   - title: "DEKiF"
+#     url: /_pages/DEKiF/
+#   - title: "News and Events"
+#     url: /_pages/News and Events/
+#   - title: "Publikationen"
+#     url: /_pages/Publikationen/
+#   - title: "Presse"
+#     url: /_pages/Presse/
+#
+# docs:
+#   - title: Kontakt
+#     children:
+#       - title: "Kontakdaten"
+#         url: /_pages/Kontakdaten/
+#       - title: "Mailingliste zu DEKiF"
+#         url: /_pages/Mailingliste zu DEKiF/
+#
+#
+#   - title: Übersicht über DEKiF
+#     children:
+#       - title: "Leben in Deutschland"
+#         url: /_pages/Leben in Deutschland/
+#       - title: "Stichprobenentwicklung"
+#         url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+#       - title: "Themenschwerpunkte"
+#         url: /_pages/Themenschwerpunkte/
+#       - title: "Wer wird befragt?"
+#         url: /_pages/Wer wird befragt/
+#       - title: "Wer kann  DEKiF nutzen?"
+#         url: /_pages/Wer kann  DEKiF nutzen/
+#
+#
+#   - title: Mission
+#     children:
+#       - title: "Mission Statement der DEKiF"
+#         url: /_pages/Mission Statement der DEKiF/
+#       - title: "Grundpfeiler unserer Arbeit"
+#         url: /_pages/Grundpfeiler unserer Arbeit/
+#       - title: "Vision"
+#         url: /_pages/Vision/
+#
+#   - title: DEkiF Survey Rat
+#     children:
+#       - title: "DEKiF Survey Rat"
+#         url: /_pages/DEKiF Survey Rat/
+#       - title: "Mitglieder des DEkiF Survey Rat"
+#         url: /_pages/Mitglieder des DEkiF Survey Rat/
+#       - title: "Mitglieder des DIW Beirats, die für DEKiF zuständig sind"
+#         url: /_pages/Mitglieder des DIW Beirats, die für DEKiF zuständig sind/
+#       - title: "Entwicklung"
+#         url: /_pages/Entwicklung/
