@@ -20,15 +20,15 @@ locale                   : "de-DE"
 title                    : ""
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : #"Malte Hückstädt"
+name                     : "Malte Hückstädt"
 description              : #"An amazing website."
-url                      :  the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               :  GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/logo.png"
+logo                     : "/assets/images/logo_chernoff.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, ffalse (default)
+# breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
@@ -108,8 +108,8 @@ analytics:
 
 # Site Author
 author:
-  name             : #"Malte Hueckstaedt"
-  avatar           : #path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  name             : "Malte Hueckstaedt"
+  avatar           : path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : #"I am an **amazing** person."
   location         : #"Somewhere"
   email            :
