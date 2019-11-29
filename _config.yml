@@ -145,10 +145,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/DZHW-DEKiF?tab=repositories"
-    - label: "Instagramm"
-      icon: "fab fa-instagram"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/chernoff_face/?hl=de"
-"
 
 
 
