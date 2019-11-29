@@ -13,7 +13,7 @@ main:
   - title: "Presse"
     url: /_pages/Presse/
 
-Sidebar
+Sidebar:
 docs:
   - title: Kontakt
     children:
