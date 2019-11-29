@@ -15,19 +15,17 @@ main:
 
 Sidebar:
 docs:
-  - title: Kontakt
+  - title: frequentische Statistik
     children:
-      - title: "Kontakdaten"
+      - title: "lineare Regression"
         url: /_pages/Kontakdaten/
-      - title: "Mailingliste zu DEKiF"
+      - title: "logistische Regression"
         url: /_pages/Mailingliste zu DEKiF/
 
 
-  - title: Übersicht über DEKiF
+  - title: baysische Statistik
     children:
-      # - title: "Leben in Deutschland"
-      #   url: /_pages/Leben in Deutschland/
-      - title: "Stichprobenentwicklung"
+      - title: "lineare Regression"
         url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
       - title: "Themenschwerpunkte"
         url: /_pages/Themenschwerpunkte/
@@ -36,23 +34,13 @@ docs:
       - title: "Wer kann  DEKiF nutzen?"
         url: /_pages/Wer kann  DEKiF nutzen/
 
-
-  - title: Mission
+  - title: geometrische Datenanalyse
     children:
-      - title: "Mission Statement der DEKiF"
-        url: /_pages/Mission Statement der DEKiF/
-      - title: "Grundpfeiler unserer Arbeit"
-        url: /_pages/Grundpfeiler unserer Arbeit/
-      - title: "Vision"
-        url: /_pages/Vision/
-
-  - title: DEkiF Survey Rat
-    children:
-      - title: "DEKiF Survey Rat"
-        url: /_pages/DEKiF Survey Rat/
-      - title: "Mitglieder des DEkiF Survey Rat"
-        url: /_pages/Mitglieder des DEkiF Survey Rat/
-      - title: "Mitglieder des DIW Beirats, die für DEKiF zuständig sind"
-        url: /_pages/Mitglieder des DIW Beirats, die für DEKiF zuständig sind/
-      - title: "Entwicklung"
-        url: /_pages/Entwicklung/
+      - title: "Korrespondenzanalyse"
+        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+      - title: "multiple Korrespondenzanalyse"
+        url: /_pages/Themenschwerpunkte/
+      - title: "Hauptkomponentenanalyse"
+        url: /_pages/Wer wird befragt/
+      - title: "multiple Faktorenanalyse"
+        url: /_pages/Wer kann  DEKiF nutzen/
