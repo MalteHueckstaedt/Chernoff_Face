@@ -1,6 +1,8 @@
 ---
-title: "Biografie"
+title: ""
 ---
+
+## Biografie
 
 Malte Hückstädt wurde 1983 in Schwedt/Oder geboren. Er studierte von 2004 bis 2009 bildende Kunst in Hannover (FH Hannover) und Berlin (KH-Berlin). Nach einem Arbeitsstipendium, das Malte Hückstädt vom deutschen Ableger des internationalen Kulturvereins [*Local Fist*](local-fist.com) 2010 erhalten hat, studierte er von 2014 bis 2016 Sozialwissenschaften in Hannover (HU Berlin) sowie von 2016 bis 2018 Soziologie mit quantitativ-methodischen Profil in Bielefeld (Uni Bielefeld).
 
@@ -12,8 +14,8 @@ Seit Februar 2019 promoviert Malte Hückstät zu Problemen in Forschungskooperat
 
 - Kunst- und Kultursoziologie
 - Wissenschaftskooperation
-
 - baysische Statistik
 - geometrische Datenanalyse
+- Methoden für kleine Fallzahlen
 - Webscraping
 - die Programmiersprache R
