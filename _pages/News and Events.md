@@ -1,3 +1,3 @@
 ---
-title: "News and Events"
+title: "News & Events"
 ---
