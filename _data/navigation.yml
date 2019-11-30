@@ -3,7 +3,7 @@ main:
   - title: "Home"
     url: https://maltehueckstaedt.github.io/Chernoff_Face/
   - title: "Über"
-    url: /_pages/Über uns/
+    url: /_pages/ueber/
   - title: "News"
     url: /_pages/News and Events/
   - title: "Publikationen"
