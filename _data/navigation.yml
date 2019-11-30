@@ -8,8 +8,8 @@ main:
     url: /_pages/News and Events/
   - title: "Publikationen"
     url: /_pages/Publikationen/
-  - title: "Presse"
-    url: /_pages/Presse/
+  - title: "Kontakt"
+    url: /_pages/Kontakt/
 
 Sidebar:
 docs:
