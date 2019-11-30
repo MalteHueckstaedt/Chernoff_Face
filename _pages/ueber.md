@@ -10,7 +10,8 @@ Seit Februar 2019 promoviert Malte Hückstät zu Problemen in Forschungskooperat
 
 # Interessen
 
-- Kunst- und Kultursoziologie
+- Kunst- und Kulturkonsumption
+- Kunsthochschulen
 - Wissenschaftskooperation
 - baysische Statistik
 - geometrische Datenanalyse
