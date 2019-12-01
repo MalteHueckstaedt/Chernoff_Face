@@ -16,29 +16,29 @@ docs:
   - title: frequentische Statistik
     children:
       - title: "lineare Regression"
-        url: /_pages/Kontakdaten/
+        url: #/_pages/Kontakdaten/
       - title: "logistische Regression"
-        url: /_pages/Mailingliste zu DEKiF/
+        url: #/_pages/Mailingliste zu DEKiF/
 
 
   - title: baysische Statistik
     children:
       - title: "lineare Regression"
-        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+        url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
       - title: "Themenschwerpunkte"
-        url: /_pages/Themenschwerpunkte/
+        url: #/_pages/Themenschwerpunkte/
       - title: "Wer wird befragt?"
-        url: /_pages/Wer wird befragt/
+        url: #/_pages/Wer wird befragt/
       - title: "Wer kann  DEKiF nutzen?"
-        url: /_pages/Wer kann  DEKiF nutzen/
+        url: #/_pages/Wer kann  DEKiF nutzen/
 
   - title: geometrische Datenanalyse
     children:
       - title: "Korrespondenzanalyse"
-        url: https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+        url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
       - title: "multiple Korrespondenzanalyse"
-        url: /_pages/Themenschwerpunkte/
+        url: #/_pages/Themenschwerpunkte/
       - title: "Hauptkomponentenanalyse"
-        url: /_pages/Wer wird befragt/
+        url: #/_pages/Wer wird befragt/
       - title: "multiple Faktorenanalyse"
-        url: /_pages/Wer kann  DEKiF nutzen/
+        url: #/_pages/Wer kann  DEKiF nutzen/
