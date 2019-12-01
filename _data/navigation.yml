@@ -23,14 +23,13 @@ docs:
 
   - title: baysische Statistik
     children:
+      - title: "Stan"
+        url: #/_pages/Themenschwerpunkte/
       - title: "lineare Regression"
         url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
-      - title: "Themenschwerpunkte"
+      - title: "Mehrebenenanalyse"
         url: #/_pages/Themenschwerpunkte/
-      - title: "Wer wird befragt?"
-        url: #/_pages/Wer wird befragt/
-      - title: "Wer kann  DEKiF nutzen?"
-        url: #/_pages/Wer kann  DEKiF nutzen/
+
 
   - title: geometrische Datenanalyse
     children:
