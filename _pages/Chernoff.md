@@ -1,4 +1,4 @@
-# Chernoff Faces
+# Einleitung
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
 (1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
@@ -209,7 +209,7 @@ library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
 ```
 
-![](Auswertung_KHs_Artfacts_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Chernoff_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
     ## effect of variables:
     ##  modified item       Var             
