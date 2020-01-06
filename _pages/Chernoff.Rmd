@@ -5,7 +5,7 @@ date: March 22, 2005
 bibliography: Bibliothek.bib
 output:
   md_document:
-    variant: gfm
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}

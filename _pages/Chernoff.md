@@ -1,4 +1,5 @@
-# Einleitung
+Einleitung
+==========
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
 (1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
@@ -17,24 +18,25 @@ Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher)
 Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces
 gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
 jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
-Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile
-von Zeilenvektoren leicht und intuitiv zu explorieren.
+Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
+Zeilenvektoren leicht und intuitiv zu explorieren.
 
 Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
 Livingstone 2009) mit sehr vielen Zeilenvektoren: Selbstverständlich
 sind zwanzig Gesichter leichter zu unterscheiden als zweihundert.
 
-# Daten
+Daten
+=====
 
 Der im folgenden zur Illustration verwendete Datensatz weißt für
-sämtliche Professor\_innen bundesdeutscher, staatlicher
-Kunsthochschulen im Fachbereich bildende Kunst (und angrenzender Fächer)
-u.a. folgende Variablen auf:
+sämtliche Professor\_innen bundesdeutscher, staatlicher Kunsthochschulen
+im Fachbereich bildende Kunst (und angrenzender Fächer) u.a. folgende
+Variablen auf:
 
-  - nationale und internationale Rankingposition des
+-   nationale und internationale Rankingposition des
     Künstler\_innen-Rankings ([Artfacts](https://artfacts.net/))
-  - Alter
-  - Geschlecht
+-   Alter
+-   Geschlecht
 
 Es können nun in diesen, vorgenannten Dimensionen statistische Profile
 für deutsche, alle staatlichen Kunsthochschulen erzeugt werden, die
@@ -50,7 +52,8 @@ berechnet werden:
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
 
-# Datenaufbereitung
+Datenaufbereitung
+=================
 
 In einem ersten Schritt wird für die Datenaufbereitung mittels der
 *tidyverse*-Pakete (Wickham 2017) der oben beschriebene Datensatz in die
@@ -131,8 +134,6 @@ erzeugt. Dieses sind, wie oben bereits beschrieben:
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
 
-<!-- end list -->
-
 ``` r
 # Erzeuge aggregierte Variablen auf KH-Ebene
 
@@ -209,7 +210,7 @@ library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
 ```
 
-![](Chernoff_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
     ## effect of variables:
     ##  modified item       Var             
@@ -229,37 +230,18 @@ faces(ArtFac[1:22,],face.type=1)
     ##  "width of ear    "  "Sum_Glob"      
     ##  "height of ear   "  "n_Profs"
 
-# Literatur
-
-<div id="refs" class="references">
-
-<div id="ref-chernoff1973use">
+Literatur
+=========
 
 Chernoff, Herman. 1973. “The Use of Faces to Represent Points in
 K-Dimensional Space Graphically.” *Journal of the American Statistical
 Association* 68 (342): 361–68.
 
-</div>
-
-<div id="ref-livingstone2009practical">
-
 Livingstone, David. 2009. *A Practical Guide to Scientific Data
 Analysis*. Vol. 341. Wiley Online Library.
-
-</div>
-
-<div id="ref-tidyverse2017">
 
 Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
 ’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
 
-</div>
-
-<div id="ref-readxl2019">
-
 Wickham, Hadley, and Jennifer Bryan. 2019. *Readxl: Read Excel Files*.
 <https://CRAN.R-project.org/package=readxl>.
-
-</div>
-
-</div>
