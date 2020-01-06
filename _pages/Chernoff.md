@@ -1,5 +1,9 @@
-# Einleitung
- 
+---
+title: "Chernoff Faces"
+---
+
+Einleitung
+==========
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
 (1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
