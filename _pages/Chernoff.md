@@ -2,28 +2,30 @@ Einleitung
 ==========
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
-(1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
-Rahmen er Datenvisualisierung mittels Chernoff Faces wird die
-Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts
-(wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen,
-Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers
-entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines
-Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend
-strukturiertes Chernoff-Face. Mittels der je nach Werten auf den
-Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die
-Merkmalsprofile der Zeilenvektoren untereinander verglichen werden. Eine
-markante Stärke der Visualisierungsmethode der Chernoff Faces ist es,
-dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder
-Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher)
-Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces
-gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
-jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
-Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
+[-@chernoff1973use] sind ein verfahren der multivariaten
+Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff
+Faces wird die Physiognomie eines cartoonartig simplifizierten,
+menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes,
+Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen
+eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder
+Zeilenvektor eines Datensatzes ein seiner Kombination von
+Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels
+der je nach Werten auf den Spaltenvekotoren ggf. variierenden
+Chernoff-Gesichter können nun die Merkmalsprofile der Zeilenvektoren
+untereinander verglichen werden. Eine markante Stärke der
+Visualisierungsmethode der Chernoff Faces ist es, dass sie die
+menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen
+in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu
+registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen
+*kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen
+Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw.
+Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
 Zeilenvektoren leicht und intuitiv zu explorieren.
 
-Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
-Livingstone 2009) mit sehr vielen Zeilenvektoren: Selbstverständlich
-sind zwanzig Gesichter leichter zu unterscheiden als zweihundert.
+Problematisch wird die Anwendung der Chernoff Faces bei Datensets [vgl.
+@livingstone2009practical] mit sehr vielen Zeilenvektoren:
+Selbstverständlich sind zwanzig Gesichter leichter zu unterscheiden als
+zweihundert.
 
 Daten
 =====
@@ -56,11 +58,11 @@ Datenaufbereitung
 =================
 
 In einem ersten Schritt wird für die Datenaufbereitung mittels der
-*tidyverse*-Pakete (Wickham 2017) der oben beschriebene Datensatz in die
-Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
-`read_excel()` des Paketes *readxl* (Wickham and Bryan 2019).
+*tidyverse*-Pakete [@tidyverse2017] der oben beschriebene Datensatz in
+die Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
+`read_excel()` des Paketes *readxl* [@readxl2019].
 
-``` r
+``` {.r}
 # Lade Datensatz
 library(readxl)
 df <- read_excel("Fine_Artfacts_Kunsthochschulen.xlsx")
@@ -75,7 +77,7 @@ schon im Rahmen der Erhebung zu reduzieren, wurde für jede auftretende
 Nationalität ein neuer Spaltenvektor erzeugt, der die jeweilige,
 nationale Rankingposition enthält:
 
-``` r
+``` {.r}
 head(df[,14:36])
 ```
 
@@ -100,7 +102,7 @@ Für die folgenden Analysen müssen diese Spaltenvektoren zu einem
 einzigen Vektor zusammengefügt werden, der den Namen `Rank_Natio` tragen
 soll:
 
-``` r
+``` {.r}
 #Setzt NA auf "" und füge Spalten zusammen
 library(tidyverse)
 df <- df %>% replace(., is.na(.), "") %>% unite("Rank_Natio", c(14:36))
@@ -116,7 +118,7 @@ Des Weiteren wurden die Ranking-Variablen als String-Variablen in die
 Arbeitsumgebung geladen, der einfachheit halber werden diese einzeln in
 numerische Variablen umgewandelt:
 
-``` r
+``` {.r}
 #colnames(df)
 df$Rank_Global <- as.numeric(df$Rank_Global)
 df$Rank_Natio <- as.numeric(df$Rank_Natio)
@@ -134,7 +136,7 @@ erzeugt. Dieses sind, wie oben bereits beschrieben:
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
 
-``` r
+``` {.r}
 # Erzeuge aggregierte Variablen auf KH-Ebene
 
 # Ranking Durchschnittwerte pro Kunsthochschule
@@ -170,7 +172,7 @@ werden, um den anschließend zu erzeugenden Chernoff-Faces-Plot
 übersichtlich zu gestallten, die Namen der Kunsthochschulen durch
 Acronyme ersetzt und als `rownames` spezifiziert.
 
-``` r
+``` {.r}
 # colnames(ArtFac)
 # filtere NA-Zeile raus
 ArtFac <- ArtFac %>%  filter(!is.na(Sum_Nat))
@@ -205,12 +207,12 @@ rownames(ArtFac)[21]<-"HfBK FaM"
 rownames(ArtFac)[22]<-"UdK Berlin" 
 ```
 
-``` r
+``` {.r}
 library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
 ```
 
-![](Chernoff_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](Chernoff_files/figure-markdown/unnamed-chunk-4-1.png)
 
     ## effect of variables:
     ##  modified item       Var             
@@ -230,18 +232,5 @@ faces(ArtFac[1:22,],face.type=1)
     ##  "width of ear    "  "Sum_Glob"      
     ##  "height of ear   "  "n_Profs"
 
-Literatur
+Literatur {#literatur .unnumbered}
 =========
-
-Chernoff, Herman. 1973. “The Use of Faces to Represent Points in
-K-Dimensional Space Graphically.” *Journal of the American Statistical
-Association* 68 (342): 361–68.
-
-Livingstone, David. 2009. *A Practical Guide to Scientific Data
-Analysis*. Vol. 341. Wiley Online Library.
-
-Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
-’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
-
-Wickham, Hadley, and Jennifer Bryan. 2019. *Readxl: Read Excel Files*.
-<https://CRAN.R-project.org/package=readxl>.
