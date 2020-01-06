@@ -2,30 +2,28 @@ Einleitung
 ==========
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
-[-@chernoff1973use] sind ein verfahren der multivariaten
-Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff
-Faces wird die Physiognomie eines cartoonartig simplifizierten,
-menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes,
-Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen
-eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder
-Zeilenvektor eines Datensatzes ein seiner Kombination von
-Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels
-der je nach Werten auf den Spaltenvekotoren ggf. variierenden
-Chernoff-Gesichter können nun die Merkmalsprofile der Zeilenvektoren
-untereinander verglichen werden. Eine markante Stärke der
-Visualisierungsmethode der Chernoff Faces ist es, dass sie die
-menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen
-in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu
-registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen
-*kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen
-Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw.
-Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
+(1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
+Rahmen er Datenvisualisierung mittels Chernoff Faces wird die
+Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts
+(wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen,
+Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers
+entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines
+Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend
+strukturiertes Chernoff-Face. Mittels der je nach Werten auf den
+Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die
+Merkmalsprofile der Zeilenvektoren untereinander verglichen werden. Eine
+markante Stärke der Visualisierungsmethode der Chernoff Faces ist es,
+dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder
+Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher)
+Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces
+gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
+jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
+Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
 Zeilenvektoren leicht und intuitiv zu explorieren.
 
-Problematisch wird die Anwendung der Chernoff Faces bei Datensets [vgl.
-@livingstone2009practical] mit sehr vielen Zeilenvektoren:
-Selbstverständlich sind zwanzig Gesichter leichter zu unterscheiden als
-zweihundert.
+Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
+Livingstone 2009) mit sehr vielen Zeilenvektoren: Selbstverständlich
+sind zwanzig Gesichter leichter zu unterscheiden als zweihundert.
 
 Daten
 =====
@@ -58,15 +56,13 @@ Datenaufbereitung
 =================
 
 In einem ersten Schritt wird für die Datenaufbereitung mittels der
-*tidyverse*-Pakete [@tidyverse2017] der oben beschriebene Datensatz in
-die Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
-`read_excel()` des Paketes *readxl* [@readxl2019].
+*tidyverse*-Pakete (Wickham 2017) der oben beschriebene Datensatz in die
+Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
+`read_excel()` des Paketes *readxl* (Wickham and Bryan 2019).
 
-``` {.r}
-# Lade Datensatz
-library(readxl)
-df <- read_excel("Fine_Artfacts_Kunsthochschulen.xlsx")
-```
+    # Lade Datensatz
+    library(readxl)
+    df <- read_excel("Fine_Artfacts_Kunsthochschulen.xlsx")
 
 Im Rahmen der Datenerhebung der Rankingpositionen war für so gut wie
 alle Professor\_innen eine globale Rankingposition einfach zu ermitteln.
@@ -77,9 +73,7 @@ schon im Rahmen der Erhebung zu reduzieren, wurde für jede auftretende
 Nationalität ein neuer Spaltenvektor erzeugt, der die jeweilige,
 nationale Rankingposition enthält:
 
-``` {.r}
-head(df[,14:36])
-```
+    head(df[,14:36])
 
     ## # A tibble: 6 x 23
     ##   Rank_Germany Rank_USA Rank_France Rank_Netherlands Rank_Austria
@@ -102,28 +96,24 @@ Für die folgenden Analysen müssen diese Spaltenvektoren zu einem
 einzigen Vektor zusammengefügt werden, der den Namen `Rank_Natio` tragen
 soll:
 
-``` {.r}
-#Setzt NA auf "" und füge Spalten zusammen
-library(tidyverse)
-df <- df %>% replace(., is.na(.), "") %>% unite("Rank_Natio", c(14:36))
+    #Setzt NA auf "" und füge Spalten zusammen
+    library(tidyverse)
+    df <- df %>% replace(., is.na(.), "") %>% unite("Rank_Natio", c(14:36))
 
-# Entferne Unterstrich, die durch die unite_Funktion verusacht wurden.
-df$Rank_Natio <- str_replace_all(df$Rank_Natio, "(_+)", "") #verwandele "_" (oder mehr) in ""
+    # Entferne Unterstrich, die durch die unite_Funktion verusacht wurden.
+    df$Rank_Natio <- str_replace_all(df$Rank_Natio, "(_+)", "") #verwandele "_" (oder mehr) in ""
 
-#ersetze leere String-Zellen durch NA Data-Frame-weit
-df <- mutate_all(df, funs(na_if(.,"")))
-```
+    #ersetze leere String-Zellen durch NA Data-Frame-weit
+    df <- mutate_all(df, funs(na_if(.,"")))
 
 Des Weiteren wurden die Ranking-Variablen als String-Variablen in die
 Arbeitsumgebung geladen, der einfachheit halber werden diese einzeln in
 numerische Variablen umgewandelt:
 
-``` {.r}
-#colnames(df)
-df$Rank_Global <- as.numeric(df$Rank_Global)
-df$Rank_Natio <- as.numeric(df$Rank_Natio)
-df$Kunsthochschule <- as.factor(df$Kunsthochschule)
-```
+    #colnames(df)
+    df$Rank_Global <- as.numeric(df$Rank_Global)
+    df$Rank_Natio <- as.numeric(df$Rank_Natio)
+    df$Kunsthochschule <- as.factor(df$Kunsthochschule)
 
 Im folgenden werden nun aggregierte Variablen auf Kunsthochschulebene
 erzeugt. Dieses sind, wie oben bereits beschrieben:
@@ -136,35 +126,35 @@ erzeugt. Dieses sind, wie oben bereits beschrieben:
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
 
-``` {.r}
-# Erzeuge aggregierte Variablen auf KH-Ebene
+<!-- -->
 
-# Ranking Durchschnittwerte pro Kunsthochschule
-Rank <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Nat_Rank= mean(Rank_Natio,na.rm = T)) %>% mutate(Mean_Global_Rank = mean(Rank_Global, na.rm = T)) %>%
-  summarize(Sum_Nat = round(mean(Mean_Nat_Rank),2), Sum_Glob = round(mean(Mean_Global_Rank),2))
+    # Erzeuge aggregierte Variablen auf KH-Ebene
 
-#Anzahl Professoren pro Kunsthochschule
-Profs <- df %>% group_by(Kunsthochschule) %>% summarise (n_Profs = n())
+    # Ranking Durchschnittwerte pro Kunsthochschule
+    Rank <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Nat_Rank= mean(Rank_Natio,na.rm = T)) %>% mutate(Mean_Global_Rank = mean(Rank_Global, na.rm = T)) %>%
+      summarize(Sum_Nat = round(mean(Mean_Nat_Rank),2), Sum_Glob = round(mean(Mean_Global_Rank),2))
 
-# Anzahl geschlecht pro Kunsthochschule
-Gender <- df %>% group_by(Kunsthochschule) %>%
-  summarise(n_Frau = sum(Gender == "F"), n_Mann = sum(Gender == "M")) 
+    #Anzahl Professoren pro Kunsthochschule
+    Profs <- df %>% group_by(Kunsthochschule) %>% summarise (n_Profs = n())
 
-# Mean_Alter pro Kunsthochschule
-df$Alter <- as.numeric(df$Alter)
-df$Alter <- 2019-df$Alter
- 
-Alter <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Alter= mean(Alter,na.rm = T))  %>%  
-  summarize(Mean_Alter_Sum = round(mean(Mean_Alter),2))   
+    # Anzahl geschlecht pro Kunsthochschule
+    Gender <- df %>% group_by(Kunsthochschule) %>%
+      summarise(n_Frau = sum(Gender == "F"), n_Mann = sum(Gender == "M")) 
 
-# Datenzusammenführung:
-df1 <- merge(Rank,Profs, by="Kunsthochschule")
-df2 <- merge(df1,Gender, by="Kunsthochschule")
-ArtFac <- merge(df2,Alter, by="Kunsthochschule")
+    # Mean_Alter pro Kunsthochschule
+    df$Alter <- as.numeric(df$Alter)
+    df$Alter <- 2019-df$Alter
+     
+    Alter <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Alter= mean(Alter,na.rm = T))  %>%  
+      summarize(Mean_Alter_Sum = round(mean(Mean_Alter),2))   
 
-# entferne alle Dataframes außer ArtFac + df
-rm(list=setdiff(ls(), c("ArtFac", "df")))
-```
+    # Datenzusammenführung:
+    df1 <- merge(Rank,Profs, by="Kunsthochschule")
+    df2 <- merge(df1,Gender, by="Kunsthochschule")
+    ArtFac <- merge(df2,Alter, by="Kunsthochschule")
+
+    # entferne alle Dataframes außer ArtFac + df
+    rm(list=setdiff(ls(), c("ArtFac", "df")))
 
 Schließlich werden alle Zeilen aus dem Dataframe gefiltert, die einen
 oder mehrere Missings auf den Spaltenvektoren aufweisen. Darüberhinaus
@@ -172,47 +162,43 @@ werden, um den anschließend zu erzeugenden Chernoff-Faces-Plot
 übersichtlich zu gestallten, die Namen der Kunsthochschulen durch
 Acronyme ersetzt und als `rownames` spezifiziert.
 
-``` {.r}
-# colnames(ArtFac)
-# filtere NA-Zeile raus
-ArtFac <- ArtFac %>%  filter(!is.na(Sum_Nat))
+    # colnames(ArtFac)
+    # filtere NA-Zeile raus
+    ArtFac <- ArtFac %>%  filter(!is.na(Sum_Nat))
 
-# Columns in Rownames
-ArtFac <- ArtFac %>% remove_rownames %>% column_to_rownames(var="Kunsthochschule")
+    # Columns in Rownames
+    ArtFac <- ArtFac %>% remove_rownames %>% column_to_rownames(var="Kunsthochschule")
 
-#rownames(ArtFac)
-# ändere Namen der KHs um Faces Plot Übersichtlicher zu gestallten
-rownames(ArtFac)[1]<-"AdBK M"
-rownames(ArtFac)[2]<-"BU WE"
-rownames(ArtFac)[3]<-"KH HAL"
-rownames(ArtFac)[4]<-"HBK BS"
-rownames(ArtFac)[5]<-"HfBK DD"
-rownames(ArtFac)[6]<-"HfBK HH"
-rownames(ArtFac)[7]<-"HFK HB"
-rownames(ArtFac)[8]<-"HdBK SB"
-rownames(ArtFac)[9]<-"HfG OF"
-rownames(ArtFac)[10]<-"KA D"
+    #rownames(ArtFac)
+    # ändere Namen der KHs um Faces Plot Übersichtlicher zu gestallten
+    rownames(ArtFac)[1]<-"AdBK M"
+    rownames(ArtFac)[2]<-"BU WE"
+    rownames(ArtFac)[3]<-"KH HAL"
+    rownames(ArtFac)[4]<-"HBK BS"
+    rownames(ArtFac)[5]<-"HfBK DD"
+    rownames(ArtFac)[6]<-"HfBK HH"
+    rownames(ArtFac)[7]<-"HFK HB"
+    rownames(ArtFac)[8]<-"HdBK SB"
+    rownames(ArtFac)[9]<-"HfG OF"
+    rownames(ArtFac)[10]<-"KA D"
 
-rownames(ArtFac)[11]<-"KA MS" 
-rownames(ArtFac)[12]<-"KHB B" 
-rownames(ArtFac)[13]<-"KfM K" 
-rownames(ArtFac)[14]<-"KH KS" 
-rownames(ArtFac)[15]<-"KH KI" 
-rownames(ArtFac)[16]<-"KH L" 
-rownames(ArtFac)[17]<-"KH MZ" 
-rownames(ArtFac)[18]<-"KH N" 
-rownames(ArtFac)[19]<-"AdK KA" 
-rownames(ArtFac)[20]<-"AdK S" 
-rownames(ArtFac)[21]<-"HfBK FaM" 
-rownames(ArtFac)[22]<-"UdK Berlin" 
-```
+    rownames(ArtFac)[11]<-"KA MS" 
+    rownames(ArtFac)[12]<-"KHB B" 
+    rownames(ArtFac)[13]<-"KfM K" 
+    rownames(ArtFac)[14]<-"KH KS" 
+    rownames(ArtFac)[15]<-"KH KI" 
+    rownames(ArtFac)[16]<-"KH L" 
+    rownames(ArtFac)[17]<-"KH MZ" 
+    rownames(ArtFac)[18]<-"KH N" 
+    rownames(ArtFac)[19]<-"AdK KA" 
+    rownames(ArtFac)[20]<-"AdK S" 
+    rownames(ArtFac)[21]<-"HfBK FaM" 
+    rownames(ArtFac)[22]<-"UdK Berlin" 
 
-``` {.r}
-library(aplpack)
-faces(ArtFac[1:22,],face.type=1)
-```
+    library(aplpack)
+    faces(ArtFac[1:22,],face.type=1)
 
-![](Chernoff_files/figure-markdown/unnamed-chunk-4-1.png)
+![](Chernoff_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
     ## effect of variables:
     ##  modified item       Var             
@@ -232,5 +218,18 @@ faces(ArtFac[1:22,],face.type=1)
     ##  "width of ear    "  "Sum_Glob"      
     ##  "height of ear   "  "n_Profs"
 
-Literatur {#literatur .unnumbered}
+Literatur
 =========
+
+Chernoff, Herman. 1973. “The Use of Faces to Represent Points in
+K-Dimensional Space Graphically.” *Journal of the American Statistical
+Association* 68 (342): 361–68.
+
+Livingstone, David. 2009. *A Practical Guide to Scientific Data
+Analysis*. Vol. 341. Wiley Online Library.
+
+Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
+’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
+
+Wickham, Hadley, and Jennifer Bryan. 2019. *Readxl: Read Excel Files*.
+<https://CRAN.R-project.org/package=readxl>.
