@@ -148,12 +148,12 @@ rownames(ArtFac)[21]<-"HfBK FaM"
 rownames(ArtFac)[22]<-"UdK Berlin" 
 ```
 
-```{r fig.height=9, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r echo=TRUE, fig.height=9, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 library(stringr)
 colnames(df)
 
