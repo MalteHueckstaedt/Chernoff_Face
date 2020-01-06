@@ -229,7 +229,7 @@ Livingstone, David. 2009. *A Practical Guide to Scientific Data
 Analysis*. Vol. 341. Wiley Online Library.
 
 Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
-’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
+’Tidyverse’*. [https://CRAN.R-project.org/package=tidyverse](https://CRAN.R-project.org/package=tidyverse).
 
 Wickham, Hadley, and Jennifer Bryan. 2019. *Readxl: Read Excel Files*.
-<https://CRAN.R-project.org/package=readxl>.
+[https://CRAN.R-project.org/package=readxl](https://CRAN.R-project.org/package=readxl).
