@@ -16,7 +16,7 @@ docs:
   - title: Datenvisualisierung
     children:
       - title: "Chernoff Faces"
-        url: #/_pages/Chernoff/
+        url: /_pages/Chernoff/
 
   # - title: baysische Statistik
   #   children:
