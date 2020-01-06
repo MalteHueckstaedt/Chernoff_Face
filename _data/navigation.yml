@@ -13,31 +13,28 @@ main:
 
 Sidebar:
 docs:
-  - title: frequentische Statistik
+  - title: Datenvisualisierung
     children:
-      - title: "lineare Regression"
-        url: #/_pages/Kontakdaten/
-      - title: "logistische Regression"
-        url: #/_pages/Mailingliste zu DEKiF/
+      - title: "Chernoff Faces"
+        url: #/_pages/Chernoff/
 
-
-  - title: baysische Statistik
-    children:
-      - title: "Stan"
-        url: #/_pages/Themenschwerpunkte/
-      - title: "lineare Regression"
-        url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
-      - title: "Mehrebenenanalyse"
-        url: #/_pages/Themenschwerpunkte/
-
-
-  - title: geometrische Datenanalyse
-    children:
-      - title: "Korrespondenzanalyse"
-        url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
-      - title: "multiple Korrespondenzanalyse"
-        url: #/_pages/Themenschwerpunkte/
-      - title: "Hauptkomponentenanalyse"
-        url: #/_pages/Wer wird befragt/
-      - title: "multiple Faktorenanalyse"
-        url: #/_pages/Wer kann  DEKiF nutzen/
+  # - title: baysische Statistik
+  #   children:
+  #     - title: "Stan"
+  #       url: #/_pages/Themenschwerpunkte/
+  #     - title: "lineare Regression"
+  #       url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+  #     - title: "Mehrebenenanalyse"
+  #       url: #/_pages/Themenschwerpunkte/
+  # 
+  # 
+  # - title: geometrische Datenanalyse
+  #   children:
+  #     - title: "Korrespondenzanalyse"
+  #       url: #https://www.diw.de/sixcms/detail.php?id=diw_01.c.434841.de
+  #     - title: "multiple Korrespondenzanalyse"
+  #       url: #/_pages/Themenschwerpunkte/
+  #     - title: "Hauptkomponentenanalyse"
+  #       url: #/_pages/Wer wird befragt/
+  #     - title: "multiple Faktorenanalyse"
+  #       url: #/_pages/Wer kann  DEKiF nutzen/
