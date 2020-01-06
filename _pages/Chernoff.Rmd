@@ -5,7 +5,7 @@ date: March 22, 2005
 bibliography: Bibliothek.bib
 output:
   md_document:
-    variant: markdown
+    variant: markdown_strict
 ---
 
 ```{r setup, include=FALSE}
