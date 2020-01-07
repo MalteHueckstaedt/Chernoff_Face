@@ -21,10 +21,12 @@ gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
 jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
 Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
 Zeilenvektoren leicht und intuitiv zu explorieren.
+{: style="text-align: justify;"}
 
 Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
 Livingstone 2009) mit sehr vielen Zeilenvektoren: Selbstverständlich
 sind zwanzig Gesichter leichter zu unterscheiden als zweihundert.
+{: style="text-align: justify;"}
 
 Daten
 =====
@@ -33,6 +35,7 @@ Der im folgenden zur Illustration verwendete Datensatz weißt für
 sämtliche Professor\_innen bundesdeutscher, staatlicher Kunsthochschulen
 im Fachbereich bildende Kunst (und angrenzender Fächer) u.a. folgende
 Variablen auf:
+{: style="text-align: justify;"}
 
 -   nationale und internationale Rankingposition des
     Künstler\_innen-Rankings ([Artfacts](https://artfacts.net/))
@@ -44,6 +47,7 @@ für deutsche, alle staatlichen Kunsthochschulen erzeugt werden, die
 wiederum mittels der Chernoff Faces visualisiert und exploriert werden
 können. Hierzu sollen folgende, einfache Kennzahlen pro Kunsthochschule
 berechnet werden:
+{: style="text-align: justify;"}
 
 1.  Mittelwert des globalen Rankings aller Professor\_innen einer
     Kunsthochschule
@@ -61,6 +65,7 @@ In einem ersten Schritt wird für die Datenaufbereitung mittels der
 *tidyverse*-Pakete (Wickham 2017) der oben beschriebene Datensatz in die
 Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
 `read_excel()` des Paketes *readxl* (Wickham and Bryan 2019).
+{: style="text-align: justify;"}
 
 ``` r
 # Lade Datensatz
@@ -76,6 +81,7 @@ Künstler\_in orientierte. Um den Informationsgehalt der Daten nicht
 schon im Rahmen der Erhebung zu reduzieren, wurde für jede auftretende
 Nationalität ein neuer Spaltenvektor erzeugt, der die jeweilige,
 nationale Rankingposition enthält:
+{: style="text-align: justify;"}
 
 ``` r
 head(df[,14:36])
@@ -101,6 +107,7 @@ head(df[,14:36])
 Für die folgenden Analysen müssen diese Spaltenvektoren zu einem
 einzigen Vektor zusammengefügt werden, der den Namen `Rank_Natio` tragen
 soll:
+{: style="text-align: justify;"}
 
 ``` r
 #Setzt NA auf "" und füge Spalten zusammen
@@ -117,6 +124,7 @@ df <- mutate_all(df, funs(na_if(.,"")))
 Des Weiteren wurden die Ranking-Variablen als String-Variablen in die
 Arbeitsumgebung geladen, der einfachheit halber werden diese einzeln in
 numerische Variablen umgewandelt:
+{: style="text-align: justify;"}
 
 ``` r
 #colnames(df)
@@ -127,6 +135,7 @@ df$Kunsthochschule <- as.factor(df$Kunsthochschule)
 
 Im folgenden werden nun aggregierte Variablen auf Kunsthochschulebene
 erzeugt. Dieses sind, wie oben bereits beschrieben:
+{: style="text-align: justify;"}
 
 1.  Mittelwert des globalen Rankings aller Professor\_innen einer
     Kunsthochschule
@@ -172,6 +181,7 @@ oder mehrere Missings auf den Spaltenvektoren aufweisen. Darüberhinaus
 werden, um den anschließend zu erzeugenden Chernoff-Faces-Plot
 übersichtlich zu gestallten, die Namen der Kunsthochschulen durch
 Acronyme ersetzt und als `rownames` spezifiziert.
+{: style="text-align: justify;"}
 
 ``` r
 # colnames(ArtFac)
@@ -220,6 +230,7 @@ wurden. Die Färbung der Gesichter erfolgt folgendermaßen: “*For painting
 elements of a face the colors of are found by averaging of sets of
 variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose,
 (9,10,11)-hair, (1,2)-face* (Wolf 2019, 9).”
+{: style="text-align: justify;"}
 
 Deutlich wird, mit blick auf die Profile der Rankings bundesdeutscher
 Kunsthochschulprofessoren, dass sich die Reputationspole der
@@ -232,6 +243,7 @@ Face, desto stärker nähert sich das Profil der jeweiligen
 Kunsthochschule dem negativen Pol der Reputation. Ähnlich intuitiv
 können nun die weiteren vier Variablen simultan über die verschiedenen
 Profile der Kunsthochschulen hinweg verglichen werden.
+{: style="text-align: justify;"}
 
 ``` r
 library(aplpack)
@@ -266,6 +278,7 @@ der Kunsthochschulen zu bekommen, werden abschließend mittels des
 Paketes *ggplot2* (2016) Boxplots erzeugt, die das nationale und
 internationale Rankingprofil der Kunsthochschulen nach Geschlecht
 differenzieren soll.
+{: style="text-align: justify;"}
 
 ``` r
 library(stringr)
@@ -340,6 +353,7 @@ ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Natio, fill=factor(Gender)) ) 
 
 Eindeutige Geschlechtsunterschiede zeigen die nationalen und
 internationalen Rankingprofile der Kunsthochschulen nicht.
+{: style="text-align: justify;"}
 
 Literatur
 =========
