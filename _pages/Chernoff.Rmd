@@ -150,6 +150,8 @@ rownames(ArtFac)[22]<-"UdK Berlin"
 
 # Chernoff Faces
 
+Die `faces()`-Funktion des Paketes *aplpack* [-@apl2017] erzeugt automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen der Chernoff Faces zugeordnet wurden.  
+
 ```{r echo=TRUE, fig.height=9, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
