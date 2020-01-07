@@ -2,9 +2,6 @@
 title: "Chernoff Faces"
 ---
 
-Einleitung
-==========
-
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
 (1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
 Rahmen er Datenvisualisierung mittels Chernoff Faces wird die
@@ -55,6 +52,7 @@ berechnet werden:
 3.  Anzahl der Professor\_innen pro Kunsthochschule ingesamt
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
+6.  Durchschnittsalter aller Professor\_innen pro Kunsthochschule
 
 Datenaufbereitung
 =================
@@ -137,6 +135,7 @@ erzeugt. Dieses sind, wie oben bereits beschrieben:
 3.  Anzahl der Professor\_innen pro Kunsthochschule ingesamt
 4.  Anzahl weiblicher Professor\_innen pro Kunsthochschule
 5.  Anzahl männlicher Professor\_innen pro Kunsthochschule
+6.  Durchschnittsalter aller Professor\_innen pro Kunsthochschule
 
 ``` r
 # Erzeuge aggregierte Variablen auf KH-Ebene
@@ -209,6 +208,31 @@ rownames(ArtFac)[21]<-"HfBK FaM"
 rownames(ArtFac)[22]<-"UdK Berlin" 
 ```
 
+Chernoff Faces
+==============
+
+Die `faces()`-Funktion des Paketes *aplpack* (2019) erzeugt
+automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen
+der Chernoff Faces zugeordnet wurden. Deutlich wird dabei, dass, weil
+lediglich sechs Variablen spezifiziert wurden, für die restlichen zu
+modellierenden Gesichtszüge die abermals selben Variablen verwendet
+wurden. Die Färbung der Gesichter erfolgt folgendermaßen: “*For painting
+elements of a face the colors of are found by averaging of sets of
+variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose,
+(9,10,11)-hair, (1,2)-face* (Wolf 2019, 9).”
+
+Deutlich wird, mit blick auf die Profile der Rankings bundesdeutscher
+Kunsthochschulprofessoren, dass sich die Reputationspole der
+Kunsthochschulen durch zwei Extreme auszeichnen: Den Pluspol der
+Reputation bilden die Professor\_innen der HfBK Frankfurt am Main (HfBK
+FaM), den Minuspol die KH Halle (KH HAL). Je kleiner ein Chernoff Face,
+desto stärker nähert sich das Profil der jeweiligen Kunsthochschule dem
+positiven Pol der Reputation, und, vice versa, je größer ein Chernoff
+Face, desto stärker nähert sich das Profil der jeweiligen
+Kunsthochschule dem negativen Pol der Reputation. Ähnlich intuitiv
+können nun die weiteren vier Variablen simultan über die verschiedenen
+Profile der Kunsthochschulen hinweg verglichen werden.
+
 ``` r
 library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
@@ -234,6 +258,89 @@ faces(ArtFac[1:22,],face.type=1)
     ##  "width of ear    "  "Sum_Glob"      
     ##  "height of ear   "  "n_Profs"
 
+Weitere Analyse
+===============
+
+Um einen etwas genaueren Blick in die Reputationsstruktur der Profile
+der Kunsthochschulen zu bekommen, werden abschließend mittels des
+Paketes *ggplot2* (2016) Boxplots erzeugt, die das nationale und
+internationale Rankingprofil der Kunsthochschulen nach Geschlecht
+differenzieren soll.
+
+``` r
+library(stringr)
+colnames(df)
+```
+
+    ##  [1] "Name"             "Media"            "Gender"          
+    ##  [4] "Nationalitaet"    "Alter"            "Lives_Works"     
+    ##  [7] "Most_Exibit_in_1" "Most_Exibit_in_2" "Most_Exibit_in_3"
+    ## [10] "Kunsthochschule"  "Fachbereich"      "Death"           
+    ## [13] "Rank_Global"      "Rank_Natio"       "Studienfach"     
+    ## [16] "Studienort"       "Studium_bei"
+
+``` r
+df$KH_Name_Short <- df$Kunsthochschule
+
+df$KH_Name_Short <- df$KH_Name_Short %>%
+        str_replace("Akademie der Bildenden Künste München","AdBK M") %>%    
+        str_replace("Bauhaus-Universität Weimar","BU WE") %>%
+        str_replace("Burg Giebichenstein Kunsthochschule Halle","KH HAL") %>%
+        str_replace("HBK Braunschweig","HBK BS") %>%
+        str_replace("HfBK Dresden","HfBK DD") %>%  
+
+        str_replace("HfbK Hamburg","HfBK HH") %>%
+        str_replace("HFK Bremen","HFK HB") %>%
+        str_replace("Hochschule der Bildenden Künste Saar", "HdBK SB") %>%
+        str_replace("Hochschule für Gestaltung Offenbach", "HfG OF") %>%
+        str_replace("Kunstakademie Düsseldorf","KA D") %>%
+        
+        str_replace("Kunstakademie Münster","KA MS") %>%
+        str_replace("Kunsthochschule Berlin Weißensee","KHB B") %>%
+        str_replace("Kunsthochschule für Medien Köln","KfM K") %>%
+        str_replace("Kunsthochschule Kassel","KH KS") %>%
+        str_replace("Kunsthochschule Kiel","KH KI") %>%
+        
+        str_replace(" \\(.*\\)", "")  %>% # einzelnd Klammern entfernen, sonst funktioniert str_replace bei  HfBK FaM nicht
+
+        str_replace("Kunsthochschule Leipzig","KH L") %>%
+        str_replace("Kunsthochschule Mainz","KH MZ") %>%
+        str_replace("Kunsthochschule Nürnberg","KH N") %>%
+        str_replace("Staatliche Akademie der Bildenden Künste Karlsruhe","AdK KA") %>%
+        str_replace("Staatliche Akademie der Bildenden Künste Stuttgart","AdK S") %>% 
+        str_replace("Staatliche Hochschule für Bildende Künste Frankfurt am Main","HfBK FaM") %>%
+        str_replace("UdK Berlin","UdK B")
+
+#Gender dichothomisieren:
+df$Gender <- df$Gender %>%
+        str_replace("M, F","F")  
+
+ df_gg <- df %>% select(Gender,KH_Name_Short,Rank_Global,Rank_Natio) %>% na.omit()
+
+#Rank Global über Khs und Geschlecht
+ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Global, fill=factor(Gender)) ) + 
+  #geom_point(size=2, alpha=.6,aes(colour=factor(Gender)))+
+  geom_jitter(size=2, alpha=.6,aes(colour=factor(Gender))) +
+  geom_boxplot(alpha = 0.5, show.legend = FALSE)+
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-5-1.png)
+
+``` r
+#Rank National über Khs und Geschlecht
+ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Natio, fill=factor(Gender)) ) + 
+  #geom_point(size=2, alpha=.6,aes(colour=factor(Gender)))+
+  geom_jitter(size=2, alpha=.6,aes(colour=factor(Gender))) +
+  geom_boxplot(alpha = 0.5, show.legend = FALSE)+
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-5-2.png)
+
+Eindeutige Geschlechtsunterschiede zeigen die nationalen und
+internationalen Rankingprofile der Kunsthochschulen nicht.
+
 Literatur
 =========
 
@@ -244,8 +351,15 @@ Association* 68 (342): 361–68.
 Livingstone, David. 2009. *A Practical Guide to Scientific Data
 Analysis*. Vol. 341. Wiley Online Library.
 
-Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
-’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
+Wickham, Hadley. 2016. *Ggplot2: Elegant Graphics for Data Analysis*.
+Springer-Verlag New York. <https://ggplot2.tidyverse.org>.
+
+———. 2017. *Tidyverse: Easily Install and Load the ’Tidyverse’*.
+<https://CRAN.R-project.org/package=tidyverse>.
 
 Wickham, Hadley, and Jennifer Bryan. 2019. *Readxl: Read Excel Files*.
 <https://CRAN.R-project.org/package=readxl>.
+
+Wolf, Hans Peter. 2019. *Aplpack: Another Plot Package: ’Bagplots’,
+’Iconplots’, ’Summaryplots’, Slider Functions and Others*.
+<https://cran.r-project.org/web/packages/aplpack/index.html>.
