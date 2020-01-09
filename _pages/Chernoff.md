@@ -2,6 +2,9 @@
 title: "Chernoff Faces"
 ---
 
+{% include toc.html %}
+
+
 Einleitung
 ==========
 
