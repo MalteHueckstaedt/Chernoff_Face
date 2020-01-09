@@ -150,6 +150,16 @@ rownames(ArtFac)[21]<-"HfBK FaM"
 rownames(ArtFac)[22]<-"UdK Berlin" 
 ```
 
+Der fertige Dataframe nimmt schließlich folgende Form an:
+
+```{r echo=FALSE}
+library(knitr)
+library(kableExtra)
+ArtFac %>%
+  kable() 
+```
+
+
 # Chernoff Faces
 
 Die `faces()`-Funktion des Paketes *aplpack* [-@apl2017] erzeugt automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen der Chernoff Faces zugeordnet wurden.  Deutlich wird dabei, dass, weil lediglich sechs Variablen spezifiziert wurden, für die restlichen zu modellierenden Gesichtszüge die abermals selben Variablen verwendet wurden. Die Färbung der Gesichter erfolgt folgendermaßen: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."

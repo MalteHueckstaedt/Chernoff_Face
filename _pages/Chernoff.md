@@ -2,6 +2,9 @@
 title: "Chernoff Faces"
 ---
 
+Einleitung
+==========
+
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
 (1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
 Rahmen er Datenvisualisierung mittels Chernoff Faces wird die
@@ -21,12 +24,10 @@ gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
 jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
 Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
 Zeilenvektoren leicht und intuitiv zu explorieren.
-{: style="text-align: justify;"}
 
 Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
 Livingstone 2009) mit sehr vielen Zeilenvektoren: Selbstverständlich
 sind zwanzig Gesichter leichter zu unterscheiden als zweihundert.
-{: style="text-align: justify;"}
 
 Daten
 =====
@@ -35,7 +36,6 @@ Der im folgenden zur Illustration verwendete Datensatz weißt für
 sämtliche Professor\_innen bundesdeutscher, staatlicher Kunsthochschulen
 im Fachbereich bildende Kunst (und angrenzender Fächer) u.a. folgende
 Variablen auf:
-{: style="text-align: justify;"}
 
 -   nationale und internationale Rankingposition des
     Künstler\_innen-Rankings ([Artfacts](https://artfacts.net/))
@@ -47,7 +47,6 @@ für deutsche, alle staatlichen Kunsthochschulen erzeugt werden, die
 wiederum mittels der Chernoff Faces visualisiert und exploriert werden
 können. Hierzu sollen folgende, einfache Kennzahlen pro Kunsthochschule
 berechnet werden:
-{: style="text-align: justify;"}
 
 1.  Mittelwert des globalen Rankings aller Professor\_innen einer
     Kunsthochschule
@@ -65,7 +64,6 @@ In einem ersten Schritt wird für die Datenaufbereitung mittels der
 *tidyverse*-Pakete (Wickham 2017) der oben beschriebene Datensatz in die
 Arbeitsumgebung geladen. Dies erfolgt hier mit der Funktion
 `read_excel()` des Paketes *readxl* (Wickham and Bryan 2019).
-{: style="text-align: justify;"}
 
 ``` r
 # Lade Datensatz
@@ -81,7 +79,6 @@ Künstler\_in orientierte. Um den Informationsgehalt der Daten nicht
 schon im Rahmen der Erhebung zu reduzieren, wurde für jede auftretende
 Nationalität ein neuer Spaltenvektor erzeugt, der die jeweilige,
 nationale Rankingposition enthält:
-{: style="text-align: justify;"}
 
 ``` r
 head(df[,14:36])
@@ -107,7 +104,6 @@ head(df[,14:36])
 Für die folgenden Analysen müssen diese Spaltenvektoren zu einem
 einzigen Vektor zusammengefügt werden, der den Namen `Rank_Natio` tragen
 soll:
-{: style="text-align: justify;"}
 
 ``` r
 #Setzt NA auf "" und füge Spalten zusammen
@@ -124,7 +120,6 @@ df <- mutate_all(df, funs(na_if(.,"")))
 Des Weiteren wurden die Ranking-Variablen als String-Variablen in die
 Arbeitsumgebung geladen, der einfachheit halber werden diese einzeln in
 numerische Variablen umgewandelt:
-{: style="text-align: justify;"}
 
 ``` r
 #colnames(df)
@@ -135,7 +130,6 @@ df$Kunsthochschule <- as.factor(df$Kunsthochschule)
 
 Im folgenden werden nun aggregierte Variablen auf Kunsthochschulebene
 erzeugt. Dieses sind, wie oben bereits beschrieben:
-{: style="text-align: justify;"}
 
 1.  Mittelwert des globalen Rankings aller Professor\_innen einer
     Kunsthochschule
@@ -181,7 +175,6 @@ oder mehrere Missings auf den Spaltenvektoren aufweisen. Darüberhinaus
 werden, um den anschließend zu erzeugenden Chernoff-Faces-Plot
 übersichtlich zu gestallten, die Namen der Kunsthochschulen durch
 Acronyme ersetzt und als `rownames` spezifiziert.
-{: style="text-align: justify;"}
 
 ``` r
 # colnames(ArtFac)
@@ -218,6 +211,550 @@ rownames(ArtFac)[21]<-"HfBK FaM"
 rownames(ArtFac)[22]<-"UdK Berlin" 
 ```
 
+Der fertige Dataframe nimmt schließlich folgende Form an:
+
+    ## 
+    ## Attaching package: 'kableExtra'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     group_rows
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sum\_Nat
+</th>
+<th style="text-align:right;">
+Sum\_Glob
+</th>
+<th style="text-align:right;">
+n\_Profs
+</th>
+<th style="text-align:right;">
+n\_Frau
+</th>
+<th style="text-align:right;">
+n\_Mann
+</th>
+<th style="text-align:right;">
+Mean\_Alter\_Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AdBK M
+</td>
+<td style="text-align:right;">
+509.13
+</td>
+<td style="text-align:right;">
+3845.47
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+58.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BU WE
+</td>
+<td style="text-align:right;">
+359.50
+</td>
+<td style="text-align:right;">
+2327.00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+49.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH HAL
+</td>
+<td style="text-align:right;">
+2223.50
+</td>
+<td style="text-align:right;">
+18192.20
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+54.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HBK BS
+</td>
+<td style="text-align:right;">
+747.67
+</td>
+<td style="text-align:right;">
+8430.00
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+58.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HfBK DD
+</td>
+<td style="text-align:right;">
+949.25
+</td>
+<td style="text-align:right;">
+7841.25
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+59.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HfBK HH
+</td>
+<td style="text-align:right;">
+251.27
+</td>
+<td style="text-align:right;">
+3525.25
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+51.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HFK HB
+</td>
+<td style="text-align:right;">
+1132.11
+</td>
+<td style="text-align:right;">
+9973.33
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+54.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HdBK SB
+</td>
+<td style="text-align:right;">
+853.25
+</td>
+<td style="text-align:right;">
+32832.40
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+56.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HfG OF
+</td>
+<td style="text-align:right;">
+1413.80
+</td>
+<td style="text-align:right;">
+11350.00
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+53.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KA D
+</td>
+<td style="text-align:right;">
+584.21
+</td>
+<td style="text-align:right;">
+6600.47
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+54.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KA MS
+</td>
+<td style="text-align:right;">
+1161.23
+</td>
+<td style="text-align:right;">
+12924.08
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+55.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KHB B
+</td>
+<td style="text-align:right;">
+624.50
+</td>
+<td style="text-align:right;">
+10828.83
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+56.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KfM K
+</td>
+<td style="text-align:right;">
+768.67
+</td>
+<td style="text-align:right;">
+17749.57
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+58.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH KS
+</td>
+<td style="text-align:right;">
+599.60
+</td>
+<td style="text-align:right;">
+4157.80
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+51.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH KI
+</td>
+<td style="text-align:right;">
+1420.25
+</td>
+<td style="text-align:right;">
+36768.60
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+62.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH L
+</td>
+<td style="text-align:right;">
+1359.82
+</td>
+<td style="text-align:right;">
+16067.94
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+54.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH MZ
+</td>
+<td style="text-align:right;">
+1080.70
+</td>
+<td style="text-align:right;">
+7809.40
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+55.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH N
+</td>
+<td style="text-align:right;">
+2367.22
+</td>
+<td style="text-align:right;">
+27328.20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+52.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AdK KA
+</td>
+<td style="text-align:right;">
+444.64
+</td>
+<td style="text-align:right;">
+3176.14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+55.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AdK S
+</td>
+<td style="text-align:right;">
+1842.19
+</td>
+<td style="text-align:right;">
+13372.31
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+58.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HfBK FaM
+</td>
+<td style="text-align:right;">
+72.00
+</td>
+<td style="text-align:right;">
+604.57
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+49.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UdK Berlin
+</td>
+<td style="text-align:right;">
+596.65
+</td>
+<td style="text-align:right;">
+14717.55
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+54.70
+</td>
+</tr>
+</tbody>
+</table>
+
 Chernoff Faces
 ==============
 
@@ -230,7 +767,6 @@ wurden. Die Färbung der Gesichter erfolgt folgendermaßen: “*For painting
 elements of a face the colors of are found by averaging of sets of
 variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose,
 (9,10,11)-hair, (1,2)-face* (Wolf 2019, 9).”
-{: style="text-align: justify;"}
 
 Deutlich wird, mit blick auf die Profile der Rankings bundesdeutscher
 Kunsthochschulprofessoren, dass sich die Reputationspole der
@@ -243,14 +779,13 @@ Face, desto stärker nähert sich das Profil der jeweiligen
 Kunsthochschule dem negativen Pol der Reputation. Ähnlich intuitiv
 können nun die weiteren vier Variablen simultan über die verschiedenen
 Profile der Kunsthochschulen hinweg verglichen werden.
-{: style="text-align: justify;"}
 
 ``` r
 library(aplpack)
 faces(ArtFac[1:22,],face.type=1)
 ```
 
-![](Chernoff_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
     ## effect of variables:
     ##  modified item       Var             
@@ -278,7 +813,6 @@ der Kunsthochschulen zu bekommen, werden abschließend mittels des
 Paketes *ggplot2* (2016) Boxplots erzeugt, die das nationale und
 internationale Rankingprofil der Kunsthochschulen nach Geschlecht
 differenzieren soll.
-{: style="text-align: justify;"}
 
 ``` r
 library(stringr)
@@ -338,7 +872,7 @@ ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Global, fill=factor(Gender)) )
   theme(axis.text.x = element_text(angle=45, hjust=1))
 ```
 
-![](Chernoff_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 ``` r
 #Rank National über Khs und Geschlecht
@@ -349,11 +883,10 @@ ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Natio, fill=factor(Gender)) ) 
   theme(axis.text.x = element_text(angle=45, hjust=1))
 ```
 
-![](Chernoff_files/figure-markdown_github/unnamed-chunk-5-2.png)
+![](Chernoff_files/figure-markdown_github/unnamed-chunk-6-2.png)
 
 Eindeutige Geschlechtsunterschiede zeigen die nationalen und
 internationalen Rankingprofile der Kunsthochschulen nicht.
-{: style="text-align: justify;"}
 
 Literatur
 =========
