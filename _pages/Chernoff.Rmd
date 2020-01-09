@@ -152,11 +152,10 @@ rownames(ArtFac)[22]<-"UdK Berlin"
 
 Der fertige Dataframe nimmt schließlich folgende Form an:
 
-```{r echo=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(knitr)
-library(kableExtra)
 ArtFac %>%
-  kable() 
+  kable(format = 'markdown') 
 ```
 
 
