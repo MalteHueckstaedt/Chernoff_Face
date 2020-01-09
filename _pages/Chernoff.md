@@ -6,23 +6,24 @@ Einleitung
 ==========
 
 Die von Herman Chernoff (\* 1. Juli 1923) entwickelten *Chernoff-Faces*
-(1973) sind ein verfahren der multivariaten Datenvisualisierung. Im
-Rahmen er Datenvisualisierung mittels Chernoff Faces wird die
-Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts
-(wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen,
-Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers
-entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines
-Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend
-strukturiertes Chernoff-Face. Mittels der je nach Werten auf den
-Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die
-Merkmalsprofile der Zeilenvektoren untereinander verglichen werden. Eine
-markante Stärke der Visualisierungsmethode der Chernoff Faces ist es,
-dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder
-Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher)
-Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces
-gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der
-jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces
-Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
+(Chernoff 1973) sind ein verfahren der multivariaten
+Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff
+Faces wird die Physiognomie eines cartoonartig simplifizierten,
+menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes,
+Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen
+eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder
+Zeilenvektor eines Datensatzes ein seiner Kombination von
+Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels
+der je nach Werten auf den Spaltenvekotoren ggf. variierenden
+Chernoff-Gesichter können nun die Merkmalsprofile der Zeilenvektoren
+untereinander verglichen werden. Eine markante Stärke der
+Visualisierungsmethode der Chernoff Faces ist es, dass sie die
+menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen
+in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu
+registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen
+*kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen
+Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw.
+Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von
 Zeilenvektoren leicht und intuitiv zu explorieren.
 
 Problematisch wird die Anwendung der Chernoff Faces bei Datensets (vgl.
@@ -244,10 +245,13 @@ ArtFac %>%
 | HfBK FaM   |     72.00|     604.57|         8|        3|        5|             49.50|
 | UdK Berlin |    596.65|   14717.55|        22|       12|       10|             54.70|
 
+Je niedriger eine Wert eines Rankingprofils, desto besser sind die
+Professor\_innen der jeweiligen Kunsthochschule im schnitt gerankt.
+
 Chernoff Faces
 ==============
 
-Die `faces()`-Funktion des Paketes *aplpack* (2019) erzeugt
+Die `faces()`-Funktion des Paketes *aplpack* (Wolf 2019) erzeugt
 automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen
 der Chernoff Faces zugeordnet wurden. Deutlich wird dabei, dass, weil
 lediglich sechs Variablen spezifiziert wurden, für die restlichen zu
@@ -299,7 +303,7 @@ Weitere Analyse
 
 Um einen etwas genaueren Blick in die Reputationsstruktur der Profile
 der Kunsthochschulen zu bekommen, werden abschließend mittels des
-Paketes *ggplot2* (2016) Boxplots erzeugt, die das nationale und
+Paketes *ggplot2* (Wickham 2016) Boxplots erzeugt, die das nationale und
 internationale Rankingprofil der Kunsthochschulen nach Geschlecht
 differenzieren soll.
 

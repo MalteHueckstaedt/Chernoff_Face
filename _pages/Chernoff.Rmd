@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Einleitung
 
-Die von Herman Chernoff (* 1. Juli 1923) entwickelten *Chernoff-Faces* [-@chernoff1973use] sind ein verfahren der multivariaten Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff Faces wird die Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels der je nach Werten auf den Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die Merkmalsprofile der  Zeilenvektoren untereinander verglichen werden. Eine markante Stärke der Visualisierungsmethode der Chernoff Faces ist es, dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von Zeilenvektoren leicht und intuitiv zu explorieren. 
+Die von Herman Chernoff (* 1. Juli 1923) entwickelten *Chernoff-Faces* [@chernoff1973use] sind ein verfahren der multivariaten Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff Faces wird die Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels der je nach Werten auf den Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die Merkmalsprofile der  Zeilenvektoren untereinander verglichen werden. Eine markante Stärke der Visualisierungsmethode der Chernoff Faces ist es, dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von Zeilenvektoren leicht und intuitiv zu explorieren. 
 
 Problematisch wird die Anwendung der Chernoff Faces bei Datensets [vgl. @livingstone2009practical] mit sehr vielen Zeilenvektoren: Selbstverständlich sind zwanzig Gesichter leichter zu unterscheiden als zweihundert. 
 
@@ -158,10 +158,11 @@ ArtFac %>%
   kable(format = 'markdown') 
 ```
 
+Je niedriger eine Wert eines Rankingprofils, desto besser sind die Professor_innen der jeweiligen Kunsthochschule im schnitt gerankt.
 
 # Chernoff Faces
 
-Die `faces()`-Funktion des Paketes *aplpack* [-@apl2017] erzeugt automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen der Chernoff Faces zugeordnet wurden.  Deutlich wird dabei, dass, weil lediglich sechs Variablen spezifiziert wurden, für die restlichen zu modellierenden Gesichtszüge die abermals selben Variablen verwendet wurden. Die Färbung der Gesichter erfolgt folgendermaßen: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."
+Die `faces()`-Funktion des Paketes *aplpack* [@apl2017] erzeugt automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen der Chernoff Faces zugeordnet wurden.  Deutlich wird dabei, dass, weil lediglich sechs Variablen spezifiziert wurden, für die restlichen zu modellierenden Gesichtszüge die abermals selben Variablen verwendet wurden. Die Färbung der Gesichter erfolgt folgendermaßen: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."
 
 Deutlich wird, mit blick auf die Profile der Rankings bundesdeutscher Kunsthochschulprofessoren, dass sich die Reputationspole der Kunsthochschulen durch zwei Extreme auszeichnen: Den Pluspol der Reputation bilden die Professor_innen der HfBK Frankfurt am Main (HfBK FaM), den Minuspol die KH Halle (KH HAL). Je kleiner ein Chernoff Face, desto stärker nähert sich das Profil der jeweiligen Kunsthochschule dem positiven Pol der Reputation, und, vice versa, je größer ein Chernoff Face, desto stärker nähert sich das Profil der jeweiligen Kunsthochschule dem negativen Pol der Reputation. Ähnlich intuitiv können nun die weiteren vier Variablen simultan über die verschiedenen Profile der Kunsthochschulen hinweg verglichen werden. 
 
@@ -172,7 +173,7 @@ faces(ArtFac[1:22,],face.type=1)
 
 # Weitere Analyse
 
-Um einen etwas genaueren Blick in die Reputationsstruktur der Profile der Kunsthochschulen zu bekommen, werden abschließend mittels des Paketes *ggplot2* [-@ggplot2016] Boxplots erzeugt, die das nationale und internationale Rankingprofil der Kunsthochschulen nach Geschlecht differenzieren soll.
+Um einen etwas genaueren Blick in die Reputationsstruktur der Profile der Kunsthochschulen zu bekommen, werden abschließend mittels des Paketes *ggplot2* [@ggplot2016] Boxplots erzeugt, die das nationale und internationale Rankingprofil der Kunsthochschulen nach Geschlecht differenzieren soll.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(stringr)
