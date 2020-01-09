@@ -1,6 +1,8 @@
 ---
 title: "Chernoff Faces"
 toc: true
+toc_label: "Inhalt"
+toc_icon: "heart"
 ---
 
 Einleitung
