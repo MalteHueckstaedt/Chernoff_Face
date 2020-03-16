@@ -1,0 +1,116 @@
+# Correspondence Analysis
+
+Die CA ist ein Chi-Quadrat-Statistik basiertes, primär geometrisches, deskriptives bzw. exploratives Verfahren, mit Hilfe dessen latente Strukturen multivariater, nominaler Daten untersucht werden können. Im Gegensatz zur Clusteranalyse werden die Merkmale bzw. Merkmalsträger nicht einem Cluster zugeordnet, sondern in einem durch latente Dimensionen, (welche repräsentiert sind durch kontinuierlich skalierte Strukturachsen) aufgespannten Raum lokalisiert und zueinander in Beziehung gesetzt[vgl.@blasius1994empirische, 240]. Ziel der CA ist es, einen optimalen Unterraum eines mehrdimensionierten Hyperraums zu bestimmen. Die Achsen, durch die der optimale Unterraum aufgespannt werden soll, werden im Verfahren der CA so gewählt, dass sie eine maximum der Variation der kategorealen Daten, die das jeweilgige Eingangsmaterial der CA bilden, erklären. Die CA wird primär graﬁsch interpretiert, die numerische Interpretation ist hingegen der Tendenz nach eher nachrangig [@backhausKorrespondenzanalyse2016, 417]. Die graﬁschen Darstellungsmöglichkeiten sind wohl auch einer der Hauptvorteile der KA: So kann die CA Datenstrukturen übersichtlich, visuell darstellen, die Komplexität anhand latenter Dimensionen reduzieren und so komplexe, unbekannte Zusammenhänge auf einen Blick sichtbar machen. Die allgemeine Maxime der explorativen Datenanalyse „Let the data speak for themselves!“ [vgl. @lerouxMultiple2010, 4] wird im Rahmen der graﬁschen Darstellungen der CA also deutlich eingelöst. Die überaus eingängigen "*geometrische[n] Karte[n]*" [@blasius2013sozialraum, 207] der CA, wie sie etwa in Bourdieus *Die feinen Unterschiede* zu ﬁnden sind, bergen jedoch auch eine Reihe von interpretatorischen Hürden, die selbst Pierre Bourdieu nicht immer fehlerfrei nahm [vgl. @blasiusGibt1989]. Eine kurze aber gute und verständliche Einführung in die Methode der CA bieten Backhaus et al. [-@backhausKorrespondenzanalyse2016] sowie Hjellbrekke [@hjellbrekke2018multiple, 9ff.]. Eingehendere Darstellungen bieten u.a. Blasius [-@blasius2014korrespondenzanalyse] oder Greenacre [-@greenacre1984correspondence].
+
+# Daten
+
+Grundlage für die folgende CA bietet einer jener Kontingenztabellen, die Pierre Bourdieu für sein zentrales Werk *Die feinen Unterschiede* [-@bourdieu1987feinen] verwendete. Selbige wurden den Anlagen des Bandes entnommen. 
+
+Den Befragten wurden folgende Frage vorgelegt: 
+
+*Bei welchen der folgenden Motive wird sich Ihrer Meinung nach am ehesten ein schönes Photo ergeben?*
+
+Darüberhinaus wurden sie aus einer Liste der folgenden Maler nach ihrem *Lieblingsmaler* gefragt:
+
+da Vinci 
+Renoir 
+Buffet 
+Utrillo
+Dali 
+Goya 
+Van Gogh 
+Brueghel
+Kandinsky 
+Raffael 
+Braque 
+Rousseau
+Vlaminck 
+Watteau 
+Picasso
+
+# Datenaufbereitung
+
+In einem ersten Schritt werden die Daten mit der `readxl()`-Funktion des Paketes *readxl* [@readxl2019] in die Arbeitsumgebung geladen. Dabei wird bereits während des ladens die Klasse der jeweiligen Spaltenvektoren spezifiziert.  Mittels der `rename()`-Funktion der *tidyverse*-Pakete [@tidyverse2017] wird schließlich der Spaltenvektor der Klassenlagen als Zeilenname (*rownames*) spezifiziert.
+
+```{r}
+library("readxl")
+library("tidyverse")
+Bourdieu <- read_excel("822 - OCR-Daten.xlsx", 
+    col_types = c("text", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric", 
+                  "numeric", "numeric", "numeric",
+                  "numeric", "numeric"))
+
+Bourdieu <- rename(Bourdieu, rowname = ...1) %>% column_to_rownames()
+```
+
+# Correspondence Analysis
+
+
+
+```{r}
+library("FactoMineR")
+library("factoextra")
+library("ggrepel")
+
+res.ca <- CA(Bourdieu, graph = FALSE)
+fviz_eig(res.ca, addlabels = TRUE, ylim = c(0, 100)) 
+
+
+row_coord <- res.ca$row$coord[,1:2]
+col_coord <- res.ca$col$coord[,1:2]
+
+ 
+coords <- rbind(row_coord,col_coord) %>% as.data.frame()
+coords$Var_Art <- c(replicate(11, "Klassenlagen"),replicate(22, "Motive_Kuenstler"))
+
+# plot
+ggplot(coords, aes(`Dim 1`,`Dim 2`, color=Var_Art))+
+geom_hline(yintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_vline(xintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_point() +
+  theme()+ 
+  geom_text_repel(aes(label=rownames(coords)))
+```
+
+```{r}
+# extrahiere ctr
+CtrRow1 <- res.ca$row$contrib[,1] %>% as.data.frame()
+CtrCol1 <- res.ca$col$contrib[,1] %>% as.data.frame()
+CtrCol <- rbind(CtrRow1,CtrCol1) 
+
+#eigener Plot mit contrib 
+ggplot(coords, aes(`Dim 1`,`Dim 2`))+
+  geom_hline(yintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_vline(xintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_point(aes(color = CtrCol$.)) +
+  theme()+ 
+  geom_text_repel(aes(label=rownames(coords),
+                      colour = CtrCol$.))+
+  scale_colour_gradient(low = "#93b7d5", high = "#ff9650")+
+  labs(x = "Dim.1 (40.01%)",y = "Dim.2 (26.80%)")+
+  theme_bw()
+```
+
+```{r}
+# extrahiere ctr
+CtrRow2 <- res.ca$row$contrib[,2] %>% as.data.frame()
+CtrCol2 <- res.ca$col$contrib[,2] %>% as.data.frame()
+CtrCol <- rbind(CtrRow2,CtrCol2) 
+
+#eigener Plot mit contrib 
+ggplot(coords, aes(`Dim 1`,`Dim 2`))+
+  geom_hline(yintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_vline(xintercept = 0, colour = "gray70", linetype='dashed')+
+  geom_point(aes(color = CtrCol$.)) +
+  theme()+ 
+  geom_text_repel(aes(label=rownames(coords),
+                      colour = CtrCol$.))+
+  scale_colour_gradient(low = "#93b7d5", high = "#ff9650")+
+  labs(x = "Dim.1 (40.01%)",y = "Dim.2 (26.80%)")+
+  theme_bw()
+```
