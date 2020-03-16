@@ -21,6 +21,8 @@ docs:
     children:
       - title: "Multiple Correspondence Analysis"
         url: /_pages/MCA/
+      - title: "Correspondence Analysis"
+        url: /_pages/MCA/
 
   # - title: baysische Statistik
   #   children:
