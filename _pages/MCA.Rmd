@@ -1,7 +1,7 @@
 ---
 title: "Multipe correspondence Analysis"
 author: Malte Hückstädt
-date: March 22, 2005
+date: March 17, 2020
 bibliography: Bibliothek.bib
 output:
   md_document:
@@ -14,26 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Einleitung
 
-Die von Herman Chernoff (* 1. Juli 1923) entwickelten *Chernoff-Faces* [@chernoff1973use] sind ein verfahren der multivariaten Datenvisualisierung. Im Rahmen er Datenvisualisierung mittels Chernoff Faces wird die Physiognomie eines cartoonartig simplifizierten, menschlichen Gesichts (wie z.B. Größe der Ohren, Form des Mundes, Neigung der Augenbrauen, Größe der Nase usw.) den Merkmalsausprägungen eines Merkmalsträgers entsprechend geformt. In der Folge erhält jeder Zeilenvektor eines Datensatzes ein seiner Kombination von Spaltenvektor-Werten entsprechend strukturiertes Chernoff-Face. Mittels der je nach Werten auf den Spaltenvekotoren ggf. variierenden Chernoff-Gesichter können nun die Merkmalsprofile der  Zeilenvektoren untereinander verglichen werden. Eine markante Stärke der Visualisierungsmethode der Chernoff Faces ist es, dass sie die menschliche Fähigkeit nutzt, auch kleine Divergenzen oder Konvergenzen in der Physiognomie menschlicher (bzw. menschenähnlicher) Gesichter zu registrieren. Da die Physiognomie der Chernoff Faces gewissermaßen *kurzgeschlossen* ist, mit den Merkmalsausprägungen der jeweiligen Merkmalsträger, erlaubt die Methode der Chernoff-Faces Ähnlich- bzw. Unähnlichkeitsstrukturen verschiedener Merkmalsprofile von Zeilenvektoren leicht und intuitiv zu explorieren. 
-
-Problematisch wird die Anwendung der Chernoff Faces bei Datensets [vgl. @livingstone2009practical] mit sehr vielen Zeilenvektoren: Selbstverständlich sind zwanzig Gesichter leichter zu unterscheiden als zweihundert. 
-
 # Daten
 
-Der im folgenden zur Illustration verwendete Datensatz weißt für sämtliche Professor_innen bundesdeutscher, staatlicher Kunsthochschulen im Fachbereich bildende Kunst (und angrenzender Fächer) u.a. folgende Variablen auf:
-
--  nationale und internationale Rankingposition des Künstler_innen-Rankings ([Artfacts](https://artfacts.net/))
--   Alter 
--   Geschlecht
-
-Es können nun in diesen, vorgenannten Dimensionen statistische Profile für deutsche, alle staatlichen Kunsthochschulen erzeugt werden, die wiederum mittels der Chernoff Faces visualisiert und exploriert werden können. Hierzu sollen folgende, einfache Kennzahlen pro Kunsthochschule berechnet werden:
-
- 1.  Mittelwert des globalen Rankings aller Professor_innen einer Kunsthochschule
- 2.  Mittelwert des nationalen Rankings aller Professor_innen einer Kunsthochschule
- 3. Anzahl der Professor_innen pro Kunsthochschule ingesamt
- 4. Anzahl weiblicher Professor_innen pro Kunsthochschule
- 5. Anzahl männlicher Professor_innen pro Kunsthochschule
- 6. Durchschnittsalter aller Professor_innen pro Kunsthochschule
+Sie zur grundsätzlichen Beschreibung des Datensatzes siehe die [Einführung in die Datenvisualisierung durch Chernoff-Faces](https://maltehueckstaedt.github.io/Chernoff_Face/_pages/Chernoff/) abschnitt [Daten](https://maltehueckstaedt.github.io/Chernoff_Face/_pages/Chernoff/#daten)
 
 # Datenaufbereitung 
 
@@ -42,195 +25,56 @@ In einem ersten Schritt wird für die Datenaufbereitung mittels der *tidyverse*-
 ```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Lade Datensatz
 library(readxl)
-df <- read_excel("Fine_Artfacts_Kunsthochschulen.xlsx")
-```
-
-Im Rahmen der Datenerhebung der Rankingpositionen war für so gut wie alle Professor_innen eine globale Rankingposition einfach zu ermitteln. Komplizierter ist die Erhebnung der nationalen Rankingposition, die sich Anfang 2019 bei Artfacts noch an der Geburtsstätte der jeweiligen Künstler_in orientierte. Um den Informationsgehalt der Daten nicht schon im Rahmen der Erhebung zu reduzieren, wurde für jede auftretende Nationalität ein neuer Spaltenvektor erzeugt, der die jeweilige, nationale Rankingposition enthält:
-
-```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-head(df[,14:36])
-```
-
-Für die folgenden Analysen müssen diese Spaltenvektoren zu einem einzigen Vektor zusammengefügt werden, der den Namen `Rank_Natio` tragen soll:
-
-```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-#Setzt NA auf "" und füge Spalten zusammen
 library(tidyverse)
-df <- df %>% replace(., is.na(.), "") %>% unite("Rank_Natio", c(14:36))
-
-# Entferne Unterstrich, die durch die unite_Funktion verusacht wurden.
-df$Rank_Natio <- str_replace_all(df$Rank_Natio, "(_+)", "") #verwandele "_" (oder mehr) in ""
-
-#ersetze leere String-Zellen durch NA Data-Frame-weit
-df <- mutate_all(df, funs(na_if(.,"")))
-```
-
-Des Weiteren wurden die Ranking-Variablen als String-Variablen in die Arbeitsumgebung geladen, der einfachheit halber werden diese einzeln in numerische Variablen umgewandelt:
-
-```{r Output1, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
-#colnames(df)
-df$Rank_Global <- as.numeric(df$Rank_Global)
-df$Rank_Natio <- as.numeric(df$Rank_Natio)
-df$Kunsthochschule <- as.factor(df$Kunsthochschule)
-```
-
-Im folgenden werden nun aggregierte Variablen auf Kunsthochschulebene erzeugt. Dieses sind, wie oben bereits beschrieben: 
-
-1.  Mittelwert des globalen Rankings aller Professor_innen einer Kunsthochschule
-2.  Mittelwert des nationalen Rankings aller Professor_innen einer Kunsthochschule
-3. Anzahl der Professor_innen pro Kunsthochschule ingesamt
-4. Anzahl weiblicher Professor_innen pro Kunsthochschule
-5. Anzahl männlicher Professor_innen pro Kunsthochschule
-6. Durchschnittsalter aller Professor_innen pro Kunsthochschule
-
-```{r Output2, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
-# Erzeuge aggregierte Variablen auf KH-Ebene
-
-# Ranking Durchschnittwerte pro Kunsthochschule
-Rank <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Nat_Rank= mean(Rank_Natio,na.rm = T)) %>% mutate(Mean_Global_Rank = mean(Rank_Global, na.rm = T)) %>%
-  summarize(Sum_Nat = round(mean(Mean_Nat_Rank),2), Sum_Glob = round(mean(Mean_Global_Rank),2))
-
-#Anzahl Professoren pro Kunsthochschule
-Profs <- df %>% group_by(Kunsthochschule) %>% summarise (n_Profs = n())
-
-# Anzahl geschlecht pro Kunsthochschule
-Gender <- df %>% group_by(Kunsthochschule) %>%
-  summarise(n_Frau = sum(Gender == "F"), n_Mann = sum(Gender == "M")) 
-
-# Mean_Alter pro Kunsthochschule
-df$Alter <- as.numeric(df$Alter)
-df$Alter <- 2019-df$Alter
- 
-Alter <- df %>% group_by(Kunsthochschule) %>% mutate(Mean_Alter= mean(Alter,na.rm = T))  %>%  
-  summarize(Mean_Alter_Sum = round(mean(Mean_Alter),2))   
-
-# Datenzusammenführung:
-df1 <- merge(Rank,Profs, by="Kunsthochschule")
-df2 <- merge(df1,Gender, by="Kunsthochschule")
-ArtFac <- merge(df2,Alter, by="Kunsthochschule")
-
-# entferne alle Dataframes außer ArtFac + df
-rm(list=setdiff(ls(), c("ArtFac", "df")))
-```
-
-Schließlich werden alle Zeilen aus dem Dataframe gefiltert, die einen oder mehrere Missings auf den Spaltenvektoren aufweisen. Darüberhinaus werden, um den anschließend zu erzeugenden Chernoff-Faces-Plot übersichtlich zu gestallten, die Namen der Kunsthochschulen durch Acronyme ersetzt und als `rownames` spezifiziert.
-
-```{r Output3, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
-# colnames(ArtFac)
-# filtere NA-Zeile raus
-ArtFac <- ArtFac %>%  filter(!is.na(Sum_Nat))
-
-# Columns in Rownames
-ArtFac <- ArtFac %>% remove_rownames %>% column_to_rownames(var="Kunsthochschule")
-
-#rownames(ArtFac)
-# ändere Namen der KHs um Faces Plot Übersichtlicher zu gestallten
-rownames(ArtFac)[1]<-"AdBK M"
-rownames(ArtFac)[2]<-"BU WE"
-rownames(ArtFac)[3]<-"KH HAL"
-rownames(ArtFac)[4]<-"HBK BS"
-rownames(ArtFac)[5]<-"HfBK DD"
-rownames(ArtFac)[6]<-"HfBK HH"
-rownames(ArtFac)[7]<-"HFK HB"
-rownames(ArtFac)[8]<-"HdBK SB"
-rownames(ArtFac)[9]<-"HfG OF"
-rownames(ArtFac)[10]<-"KA D"
-
-rownames(ArtFac)[11]<-"KA MS" 
-rownames(ArtFac)[12]<-"KHB B" 
-rownames(ArtFac)[13]<-"KfM K" 
-rownames(ArtFac)[14]<-"KH KS" 
-rownames(ArtFac)[15]<-"KH KI" 
-rownames(ArtFac)[16]<-"KH L" 
-rownames(ArtFac)[17]<-"KH MZ" 
-rownames(ArtFac)[18]<-"KH N" 
-rownames(ArtFac)[19]<-"AdK KA" 
-rownames(ArtFac)[20]<-"AdK S" 
-rownames(ArtFac)[21]<-"HfBK FaM" 
-rownames(ArtFac)[22]<-"UdK Berlin" 
-```
-
-Der fertige Dataframe nimmt schließlich folgende Form an:
-
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-library(knitr)
-ArtFac %>%
-  kable(format = 'markdown') 
-```
-
-Je niedriger eine Wert eines Rankingprofils, desto besser sind die Professor_innen der jeweiligen Kunsthochschule im schnitt gerankt.
-
-# Chernoff Faces
-
-Die `faces()`-Funktion des Paketes *aplpack* [@apl2017] erzeugt automatisiert eine Übersicht, welche Variablen welchen Gesichtsregionen der Chernoff Faces zugeordnet wurden.  Deutlich wird dabei, dass, weil lediglich sechs Variablen spezifiziert wurden, für die restlichen zu modellierenden Gesichtszüge die abermals selben Variablen verwendet wurden. Die Färbung der Gesichter erfolgt folgendermaßen: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."
-
-Deutlich wird, mit blick auf die Profile der Rankings bundesdeutscher Kunsthochschulprofessoren, dass sich die Reputationspole der Kunsthochschulen durch zwei Extreme auszeichnen: Den Pluspol der Reputation bilden die Professor_innen der HfBK Frankfurt am Main (HfBK FaM), den Minuspol die KH Halle (KH HAL). Je kleiner ein Chernoff Face, desto stärker nähert sich das Profil der jeweiligen Kunsthochschule dem positiven Pol der Reputation, und, vice versa, je größer ein Chernoff Face, desto stärker nähert sich das Profil der jeweiligen Kunsthochschule dem negativen Pol der Reputation. Ähnlich intuitiv können nun die weiteren vier Variablen simultan über die verschiedenen Profile der Kunsthochschulen hinweg verglichen werden. 
-
-```{r echo=TRUE, fig.height=9, fig.width=9, message=FALSE, warning=FALSE, paged.print=FALSE}
-library(aplpack)
-faces(ArtFac[1:22,],face.type=1)
-```
-
-# Weitere Analyse
-
-Um einen etwas genaueren Blick in die Reputationsstruktur der Profile der Kunsthochschulen zu bekommen, werden abschließend mittels des Paketes *ggplot2* [@ggplot2016] Boxplots erzeugt, die das nationale und internationale Rankingprofil der Kunsthochschulen nach Geschlecht differenzieren soll.
-
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-library(stringr)
+df <- read_excel("/Users/maltehuckstadt/Google Drive/GitHub/Chernoff_Face/_pages/Datensatz_MCA_aufbereitet_2.xlsx")
 colnames(df)
-
-df$KH_Name_Short <- df$Kunsthochschule
-
-df$KH_Name_Short <- df$KH_Name_Short %>%
-        str_replace("Akademie der Bildenden Künste München","AdBK M") %>%    
-        str_replace("Bauhaus-Universität Weimar","BU WE") %>%
-        str_replace("Burg Giebichenstein Kunsthochschule Halle","KH HAL") %>%
-        str_replace("HBK Braunschweig","HBK BS") %>%
-        str_replace("HfBK Dresden","HfBK DD") %>%  
-
-        str_replace("HfbK Hamburg","HfBK HH") %>%
-        str_replace("HFK Bremen","HFK HB") %>%
-        str_replace("Hochschule der Bildenden Künste Saar", "HdBK SB") %>%
-        str_replace("Hochschule für Gestaltung Offenbach", "HfG OF") %>%
-        str_replace("Kunstakademie Düsseldorf","KA D") %>%
-        
-        str_replace("Kunstakademie Münster","KA MS") %>%
-        str_replace("Kunsthochschule Berlin Weißensee","KHB B") %>%
-        str_replace("Kunsthochschule für Medien Köln","KfM K") %>%
-        str_replace("Kunsthochschule Kassel","KH KS") %>%
-        str_replace("Kunsthochschule Kiel","KH KI") %>%
-        
-        str_replace(" \\(.*\\)", "")  %>% # einzelnd Klammern entfernen, sonst funktioniert str_replace bei  HfBK FaM nicht
-
-        str_replace("Kunsthochschule Leipzig","KH L") %>%
-        str_replace("Kunsthochschule Mainz","KH MZ") %>%
-        str_replace("Kunsthochschule Nürnberg","KH N") %>%
-        str_replace("Staatliche Akademie der Bildenden Künste Karlsruhe","AdK KA") %>%
-        str_replace("Staatliche Akademie der Bildenden Künste Stuttgart","AdK S") %>% 
-        str_replace("Staatliche Hochschule für Bildende Künste Frankfurt am Main","HfBK FaM") %>%
-        str_replace("UdK Berlin","UdK B")
-
-#Gender dichothomisieren:
-df$Gender <- df$Gender %>%
-        str_replace("M, F","F")  
-
- df_gg <- df %>% select(Gender,KH_Name_Short,Rank_Global,Rank_Natio) %>% na.omit()
-
-#Rank Global über Khs und Geschlecht
-ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Global, fill=factor(Gender)) ) + 
-  #geom_point(size=2, alpha=.6,aes(colour=factor(Gender)))+
-  geom_jitter(size=2, alpha=.6,aes(colour=factor(Gender))) +
-  geom_boxplot(alpha = 0.5, show.legend = FALSE)+
-  theme(axis.text.x = element_text(angle=45, hjust=1))
-
-#Rank National über Khs und Geschlecht
-ggplot(df_gg, aes(x=factor(KH_Name_Short), y=Rank_Natio, fill=factor(Gender)) ) + 
-  #geom_point(size=2, alpha=.6,aes(colour=factor(Gender)))+
-  geom_jitter(size=2, alpha=.6,aes(colour=factor(Gender))) +
-  geom_boxplot(alpha = 0.5, show.legend = FALSE)+
-  theme(axis.text.x = element_text(angle=45, hjust=1))
 ```
 
-Eindeutige Geschlechtsunterschiede zeigen die nationalen und internationalen Rankingprofile der Kunsthochschulen nicht.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library("FactoMineR")
+library("factoextra")
+
+df <- read_excel("/Users/maltehuckstadt/Google Drive/GitHub/Chernoff_Face/_pages/Datensatz_MCA_aufbereitet_2.xlsx")
+
+
+colnames(df)
+df_mca <- df %>% select(-ID,-Ost_West,-Rank_Global_1,
+                        -Rank_Germa_1,-Rank_EU_1,-Rank_Non_EU_1,
+                        -Rank_EU_2,-Rank_Non_EU_2,-Most_Exibit_in_2,
+                        -Most_Exibit_in_3,-Lives_Works_kat_1,-Fachbereich)
+
+#missing
+
+library(naniar)
+vis_miss(df_mca)
+gg_miss_upset(df_mca)
+
+
+df_mca <- na.omit(df_mca)
+
+rownames(df_mca) <- df_mca$Name
+df_mca <- df_mca %>% select(-Name)
+
+colnames(df_mca)
+
+                        
+res.mca <- MCA(df_mca, graph = FALSE, quali.sup=c(6,7,8,11,12))
+fviz_screeplot(res.mca, addlabels = TRUE, ylim = c(0, 45))
+
+fviz_mca_var(res.mca, 
+             repel = TRUE, # Avoid text overlapping (slow)
+             ggtheme = theme_minimal())
+
+fviz_mca_ind(res.mca, col.ind = "contrib", 
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE, # Avoid text overlapping (slow if many points)
+             ggtheme = theme_minimal())
+ 
+ 
+```
+ 
+ 
 
 # Literatur
